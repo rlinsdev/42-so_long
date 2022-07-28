@@ -1,0 +1,77 @@
+# NAME = baseproject.a
+
+# APPS = ./apps #App Folder
+# BIN = ./bin #Bin folder
+# INCLUDE = ./include #Include folder
+# FOBJ = ./obj
+# FSRC = ./src
+
+# GREEN = \033[0;32m
+# RED = \033[0;31m
+# BLUE = \033[0;34m
+# RESET = \033[0m
+
+# CC = gcc -c
+
+# FLAGS = -Wall -Wextra -Werror
+
+# AR = ar -rcs
+
+# SRCS = $(FSRC)/float_vector.c $(FSRC)/mytime.c
+# OBJ = $(FOBJ)/float_vector.o $(FOBJ)/mytime.o
+
+# all: $(NAME)
+
+# teste:
+# 	@echo $(CC) $(SRCS) ./obj/*o -o ./bin/app
+
+# $(NAME):
+# 	@echo "$(BLUE)just a minute ⌛...$(RESET)"
+# 	$(CC) $(FLAGS) $(SRCS) ./obj/*o -o ./bin/app
+# 	$(AR) $(NAME) $(OBJ)
+# 	ranlib $(NAME)
+# 	@echo "\n$(NAME): $(GREEN)$(NAME) was created ✓$(RESET)"
+# 	@echo
+
+# ################################################################################
+# #all: libed clean_apps myapps
+
+# # libed: \
+# # 	$(OBJ)/float_vector.o \
+# # 	$(OBJ)/mytime.o
+
+
+# # myapps: \
+# # 	$(BIN)/app \
+# # 	$(BIN)/app_com_mytime
+
+# # $(OBJ)/%.o: $(SRC)/%.c $(INCLUDE)/%.h
+# # 	gcc -c $< -I $(INCLUDE) -o $@
+
+# # $(BIN)/%: $(APPS)/%.c
+# # 	gcc $< $(OBJ)/*.o -I $(INCLUDE) -o $@
+# ################################################################################
+
+# # Run the program
+# run:
+# 	$(BIN)/app
+
+# #remove all in folder bin and obj
+# clean:
+# 	@echo "\n$(NAME): $(RED)objects (*.o) files were deleted ✗$(RESET)"
+# 	rm -rf $(BIN)/* $(OBJ)/*
+# 	@echo
+
+# # TODO: Em qual momento este arquivo .a foi adicionado?
+# fclean: clean
+# 	@echo "$(NAME): $(RED)$(NAME) was deleted ✗$(RESET)"
+# 	/bin/rm -rf $(NAME)
+# 	@echo
+
+# #Remove all apps files
+# clean_apps:
+# 	rm -rf $(BIN)/*
+
+# re: fclean all
+
+# .PHONY: all clean fclean re
