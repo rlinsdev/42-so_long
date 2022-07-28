@@ -1,3 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
+#    Updated: 2022/07/28 19:19:51 by rlins            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+GREEN = \033[0;32m
+RED = \033[0;31m
+BLUE = \033[0;34m
+RESET = \033[0m
+
 
 # PATH VARIABLES
 HEADERS_PATH = ./include/
@@ -29,7 +46,9 @@ all: libft $(LIBNAME)
 
 # -> compiles libft all over
 libft:
+	@echo "$(LIBNAME): $(BLUE)Generating... Just a minute$(RESET)"
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT)
+	@echo "$(LIBNAME): $(GREEN)Done!$(RESET)"
 
 # -> creates static library libftprintf.a inside ./libs/
 $(LIBNAME): $(OBJECTS)
@@ -42,7 +61,7 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 	@$(CC) $(FLAGS) -c $< -I $(HEADERS_PATH) -o $@
 
 # -> mandatory flag for project submission
-bonus: all
+#bonus: all
 
 # RUN
 # -> creates the executable file $(EXECUTABLE) to test development
@@ -57,11 +76,13 @@ run: all main
 # SANITIZE
 # -> deletes all .o files; also runs libft's clean target
 clean:
+	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
 	@$(RM) $(OBJECTS)
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
 # -> deletes .o files + static library file + executable; also runs libft's fclean target
 fclean: clean
+	@echo "$(LIBNAME): $(RED)was deleted$(RESET)"
 	@$(RM) $(BINS_PATH)$(EXECUTABLE)
 	@$(RM) $(LIBS_PATH)$(LIBNAME)
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
