@@ -6,30 +6,31 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
-#    Updated: 2022/07/28 19:19:59 by rlins            ###   ########.fr        #
+#    Updated: 2022/07/28 19:35:19 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+# Collors
 GREEN = \033[0;32m
 RED = \033[0;31m
 BLUE = \033[0;34m
 RESET = \033[0m
 
-# PATH VARIABLES
+# Paths
 HEADERS_PATH = ../../include/
 SRCS_PATH = ./src/
 OBJS_PATH = ./obj/
 LIBS_PATH = ../
 
-# COMPILATION
+# Compilation
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-# BASH COMMANDS
+# Bash commands
 RM = rm -f
 MKDIR = mkdir -p
 
-# FILES
+# Files
 LIBNAME = libft.a
 SRC_FILES =	ft_atoi.c \
 			ft_bzero.c \
@@ -69,9 +70,10 @@ SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
 
-# TARGETS
+# Target
 all: prep $(LIBNAME)
 
+# Compiles
 prep:
 	@echo "$(LIBNAME): $(BLUE)Generating... Just a minute$(RESET)"
 	@$(MKDIR) $(SRCS_PATH) $(OBJS_PATH)
