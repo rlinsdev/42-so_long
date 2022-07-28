@@ -33,7 +33,7 @@ libft:
 
 # -> creates static library libftprintf.a inside ./libs/
 $(LIBNAME): $(OBJECTS)
-	@cp $(LIBS_PATH)/libft/libft.a $(LIBS_PATH)$(LIBNAME)
+	@cp $(LIBS_PATH)/libft.a $(LIBS_PATH)$(LIBNAME)
 	@ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
 
 # -> creates object files for ft_printf (libftprintf)

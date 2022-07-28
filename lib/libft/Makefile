@@ -5,48 +5,83 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/04/10 16:09:27 by rlins             #+#    #+#              #
-#    Updated: 2022/07/28 18:39:05 by rlins            ###   ########.fr        #
+#    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
+#    Updated: 2022/07/28 18:55:14 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+# PATH VARIABLES
+HEADERS_PATH = ../../include/
+SRCS_PATH = ./src/
+OBJS_PATH = ./obj/
+LIBS_PATH = ../
 
-GREEN = \033[0;32m
-RED = \033[0;31m
-BLUE = \033[0;34m
-RESET = \033[0m
-
-CC = gcc -c 
-
+# COMPILATION
+CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
-AR = ar -rcs
+# BASH COMMANDS
+RM = rm -f
+MKDIR = mkdir -p
 
-SRCS = *.c
-OBJ = *.o
+# FILES
+LIBNAME = libft.a
+SRC_FILES =	ft_atoi.c \
+			ft_bzero.c \
+			ft_calloc.c \
+			ft_isalnum.c \
+			ft_isalpha.c \
+			ft_isascii.c \
+			ft_isdigit.c \
+			ft_isprint.c \
+			ft_itoa.c \
+			ft_memchr.c \
+			ft_memcmp.c \
+			ft_memcpy.c \
+			ft_memmove.c \
+			ft_memset.c \
+			ft_putchar_fd.c \
+			ft_putendl_fd.c \
+			ft_putnbr_fd.c \
+			ft_putstr_fd.c \
+			ft_split.c \
+			ft_strchr.c \
+			ft_strdup.c \
+			ft_strjoin.c \
+			ft_strlcat.c \
+			ft_strlcpy.c \
+			ft_strlen.c \
+			ft_strmapi.c \
+			ft_strncmp.c \
+			ft_strnstr.c \
+			ft_strrchr.c \
+			ft_strtrim.c \
+			ft_substr.c \
+			ft_tolower.c \
+			ft_toupper.c 
 
-all: $(NAME) 
+SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
+OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
+OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
 
-$(NAME):
-	@echo "$(BLUE)(just) a minute ⌛...$(RESET)"
-	$(CC) $(FLAGS) $(SRCS)
-	$(AR) $(NAME) $(OBJ)
-	ranlib $(NAME)
-	@echo "\n$(NAME): $(GREEN)$(NAME) was created ✓$(RESET)"
-	@echo
-	
+# TARGETS
+all: prep $(LIBNAME)
+
+prep:
+	@$(MKDIR) $(SRCS_PATH) $(OBJS_PATH)
+
+$(LIBNAME): $(OBJECTS)
+	@ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
+
+$(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
+	@$(CC) $(FLAGS) -c -I $(HEADERS_PATH) $< -o $@
 
 clean:
-	@echo "\n$(NAME): $(RED)object (*.o) files were deleted ✗$(RESET)"
-	/bin/rm -f $(OBJ)
-	@echo
+	@$(RM) $(OBJECTS)
 
 fclean: clean
-	@echo "$(NAME): $(RED)$(NAME) was deleted ✗$(RESET)"
-	/bin/rm -rf $(NAME)
-	@echo
+	@$(RM) $(LIBS_PATH)$(LIBNAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY:	all clean fclean re
