@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/07/28 19:35:23 by rlins            ###   ########.fr        #
+#    Updated: 2022/07/28 21:27:58 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ CC = gcc
 FLAGS = -Wall -Wextra -Werror
 
 # Bash commands
-RM = rm -f
+RM = rm -f # -f Force
 MKDIR = mkdir -p
 MAKE_NOPRINT = $(MAKE) --no-print-directory
 
