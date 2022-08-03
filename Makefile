@@ -1,96 +1,82 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/07/28 21:27:58 by rlins            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-# Collors
-GREEN = \033[0;32m
-RED = \033[0;31m
-BLUE = \033[0;34m
-RESET = \033[0m
+LIBFT_PATH		=	./lib/libft
+LIBFT			=	$(LIBFT_PATH)/libft.a
 
-# Paths
-HEADERS_PATH = ./include/
-SRCS_PATH = ./src/
-OBJS_PATH = ./obj/
-LIBS_PATH = ./lib/
-BINS_PATH = ./bin/
+MINILIBX_PATH	=	./lib/minilibx
+MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
-# Compilation
-CC = gcc
-FLAGS = -Wall -Wextra -Werror
+SOURCES_FILES	=	so_long.c
+# SOURCES_FILES	=	so_long.c \
+# 					draw.c \
+# 					init.c \
+# 					read_map.c \
+# 					map_validate.c \
+# 					player_update.c \
+# 					gameplay.c \
+# 					exit_game.c
 
-# Bash commands
-RM = rm -f # -f Force
-MKDIR = mkdir -p
-MAKE_NOPRINT = $(MAKE) --no-print-directory
+#SOURCES_BONUS	=	so_long_bonus.c \
+# SOURCES_BONUS	=	so_long_bonus.c \
+# 					draw_bonus.c \
+# 					init_bonus.c \
+# 					read_map_bonus.c \
+# 					map_validate_bonus.c \
+# 					player_update_bonus.c \
+# 					gameplay_bonus.c \
+# 					exit_game_bonus.c \
+# 					moves_bonus.c \
+# 					animation_bonus.c
 
-# Files
-LIBNAME = baseproject.a
-SRC_FILES = float_vector.c \
-			mytime.c
-			
-SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
-OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
-OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
-EXECUTABLE = ft_baseproject_test
 
-# TARGETS
-all: libft $(LIBNAME)
+SOURCES_DIR		=	source
+BONUS_DIR		=	sources_bonus
 
-# Compiles libft all over
-libft:
-	@echo "$(LIBNAME): $(BLUE)Generating... Just a minute$(RESET)"
-	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT)
-	@echo "$(LIBNAME): $(GREEN)Done!$(RESET)"
+HEADER			=	$(SOURCES_DIR)/so_long.h
+HEEADER_BONUS	=	$(BONUS_DIR)/so_long_bonus.h
 
-# Creates static library libft.a inside ./libs/ folder
-$(LIBNAME): $(OBJECTS)
-	@cp $(LIBS_PATH)/libft.a $(LIBS_PATH)$(LIBNAME)
-	@ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
+SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SOURCES_FILES))
+BONUS_FILES		=	$(addprefix $(BONUS_DIR)/, $(SOURCES_BONUS))
 
-# Creates object files for ft_baseprojct
-$(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
-	@$(MKDIR) $(OBJS_PATH)
-	@$(CC) $(FLAGS) -c $< -I $(HEADERS_PATH) -o $@
+OBJECTS			= 	$(SOURCES:.c=.o)
+OBJECTS_BONUS	= 	$(BONUS_FILES:.c=.o)
 
-#
-# RUN
-#
-# Creates the executable file $(EXECUTABLE) to test development
-main:	./apps/app.c
-	@$(MKDIR) $(BINS_PATH)
-	@$(CC) $(CFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
+NAME			=	so_long
+NAME_BONUS		=	so_long_bonus
 
-# Compile program and execute main file
-run: all main
-	@$(BINS_PATH)$(EXECUTABLE)
-	@$(MAKE_NOPRINT) fclean
+CC				=	clang
+RM				=	rm -f
 
-#
-# SANITIZE
-#
-# Removing .o files
+CFLAGS			=	-Wall -Wextra -Werror
+MLXFLAGS		=	-L. -lXext -L. -lX11
+
+.c.o:
+				$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
+
+all:			$(NAME)
+
+bonus:			$(NAME_BONUS)
+
+$(NAME):		$(LIBFT) $(MINILIBX) $(OBJECTS) $(HEADER)
+				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
+
+$(NAME_BONUS):		$(LIBFT) $(MINILIBX) $(OBJECTS_BONUS) $(HEADER_BONUS)
+					$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(NAME_BONUS)
+
+$(LIBFT):
+				$(MAKE) -C $(LIBFT_PATH)
+
+$(MINILIBX):
+				$(MAKE) -C $(MINILIBX_PATH)
+
 clean:
-	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
-	@$(RM) $(OBJECTS)
-	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
+				$(MAKE) -C $(LIBFT_PATH) clean
+				$(MAKE) -C $(MINILIBX_PATH) clean
+				$(RM) $(OBJECTS) $(OBJECTS_BONUS)
 
-# Removing .o files, .a files
-fclean: clean
-	@echo "$(LIBNAME): $(RED)was deleted$(RESET)"
-	@$(RM) $(BINS_PATH)$(EXECUTABLE)
-	@$(RM) $(LIBS_PATH)$(LIBNAME)
-	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
+fclean:			clean
+				$(MAKE) -C $(LIBFT_PATH) fclean
+				$(RM) $(NAME) $(NAME_BONUS)
 
-# Removing and running
-re: fclean all
+re:				fclean all
 
-.PHONY: all run clean fclean re
+.PHONY:			all clean fclean re libft minilibx bonus

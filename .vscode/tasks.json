@@ -1,4 +1,5 @@
 // Responsable to tell VSCode what and how compile
+// Update this file to be able to debug in VsCode
 {
     "tasks": [
         {
