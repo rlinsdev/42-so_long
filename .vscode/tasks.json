@@ -10,9 +10,9 @@
                 "-fdiagnostics-color=always",
                 "-g", // Allow to debug
                 "${file}", // Current file open
-                "${fileDirname}/../src/*.c", // All .c files to compile, in source folder
+                "${fileDirname}/*.c", // All .c files to compile, in source folder
                 "-o", //output 
-                "${fileDirname}/../bin/${fileBasenameNoExtension}" // All compile files in bin folder
+                "${fileDirname}/bin/${fileBasenameNoExtension}" // All compile files in bin folder
             ],
             "options": {
                 "cwd": "${fileDirname}"

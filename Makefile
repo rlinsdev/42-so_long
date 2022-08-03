@@ -1,3 +1,14 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/03 19:54:21 by rlins             #+#    #+#              #
+#    Updated: 2022/08/03 20:09:04 by rlins            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
 LIBFT_PATH		=	./lib/libft
 LIBFT			=	$(LIBFT_PATH)/libft.a
@@ -27,7 +38,8 @@ SOURCES_FILES	=	so_long.c
 # 					moves_bonus.c \
 # 					animation_bonus.c
 
-
+BINS_DIR 		= 	./bin/
+OBJS_DIR 		= 	obj
 SOURCES_DIR		=	src
 BONUS_DIR		=	sources_bonus
 
@@ -54,10 +66,13 @@ MLXFLAGS		=	-L. -lXext -L. -lX11
 
 all:			$(NAME)
 
+test:
+	$(OBJECTS)
+
 bonus:			$(NAME_BONUS)
 
 $(NAME):		$(LIBFT) $(MINILIBX) $(OBJECTS) $(HEADER)
-				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(NAME)
+				$(CC) $(CFLAGS) $(OBJECTS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(BINS_DIR)$(NAME)
 
 $(NAME_BONUS):		$(LIBFT) $(MINILIBX) $(OBJECTS_BONUS) $(HEADER_BONUS)
 					$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(NAME_BONUS)
@@ -72,6 +87,7 @@ clean:
 				$(MAKE) -C $(LIBFT_PATH) clean
 				$(MAKE) -C $(MINILIBX_PATH) clean
 				$(RM) $(OBJECTS) $(OBJECTS_BONUS)
+				$(RM) $(BINS_DIR)$(NAME)
 
 fclean:			clean
 				$(MAKE) -C $(LIBFT_PATH) fclean
