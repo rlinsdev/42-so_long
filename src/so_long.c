@@ -6,13 +6,13 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/03 18:53:32 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/03 18:58:14 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(void)
+int	main(void) 
 {
 	printf("entrou");
 	// t_game	game;

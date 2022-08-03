@@ -28,7 +28,7 @@ SOURCES_FILES	=	so_long.c
 # 					animation_bonus.c
 
 
-SOURCES_DIR		=	source
+SOURCES_DIR		=	src
 BONUS_DIR		=	sources_bonus
 
 HEADER			=	$(SOURCES_DIR)/so_long.h
