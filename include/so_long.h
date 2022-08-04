@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 16:09:15 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/04 19:01:55 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # define SO_LONG_H
 
 # include "../lib/minilibx/mlx.h"
-# include "../lib/libft/libft.h"
+# include "./libft.h"
 # include <stdio.h>
 # include <fcntl.h>
 
@@ -55,6 +55,7 @@ typedef struct s_game
 // # define KEY_DOWN 65364
 // # define KEY_RIGHT 65363
 
+int	start(int argc, char **argv);
 // void	img_draw(t_game *game, void *image, int x, int y);
 // int		map_draw(t_game *game);
 // void	game_init(t_game *game);

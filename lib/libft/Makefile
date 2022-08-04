@@ -1,31 +1,67 @@
-NAME = libft.a
-CC = clang
-CFLAGS = -Wall -Wextra -Werror
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/08/04 19:18:18 by rlins             #+#    #+#              #
+#    Updated: 2022/08/04 19:19:30 by rlins            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# Collors
+GREEN = \033[0;32m
+RED = \033[0;31m
+BLUE = \033[0;34m
+RESET = \033[0m
+
+# Paths
+HEADERS_PATH = ../../include/
+SRCS_PATH = ./src/
+OBJS_PATH = ./obj/
+LIBS_PATH = ../
+
+# Compilation
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+
+# Bash commands
+RM = rm -f
+MKDIR = mkdir -p
+
+# Files
+LIBNAME = libft.a
 SRC = ft_strlen.c
-# SRC =	ft_strdup.c \
-# 		ft_strjoin.c \
-# 		ft_substr.c \
-# 		ft_strlen.c \
-# 		ft_split.c \
-# 		ft_itoa.c \
-# 		get_next_line.c
 
-OBJECTS = $(SRC:.c=.o)
+SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
+OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
+OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
 
-all: $(NAME)
+# Target
+all: prep $(LIBNAME)
 
-$(NAME): $(OBJECTS)
-	ar -rcs $(NAME) $(OBJECTS)
+# Compiles
+prep:
+	@echo "$(LIBNAME): $(BLUE)Generating... Just a minute$(RESET)"
+	@$(MKDIR) $(SRCS_PATH) $(OBJS_PATH)
+	@echo "$(LIBNAME): $(GREEN)Done!$(RESET)"
 
-$(OBJECTS): $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
+$(LIBNAME): $(OBJECTS)
+	@ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
+
+$(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
+	@$(CC) $(FLAGS) -c -I $(HEADERS_PATH) $< -o $@
 
 clean:
-	$(RM) $(OBJECTS) $(BONUS_OBJECTS)
+	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
+	@$(RM) $(OBJECTS)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean:
+	@echo "$(LIBNAME): $(RED)was deleted$(RESET)"
+	@$(RM) $(OBJECTS)
+	@$(RM) $(LIBS_PATH)$(LIBNAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY:	all clean fclean re

@@ -5,119 +5,95 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/03 19:54:21 by rlins             #+#    #+#              #
-#    Updated: 2022/08/04 16:49:55 by rlins            ###   ########.fr        #
+#    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
+#    Updated: 2022/08/04 19:24:44 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBFT_PATH		=	./lib/libft
-LIBFT			=	$(LIBFT_PATH)/libft.a
+# Collors
+GREEN = \033[0;32m
+RED = \033[0;31m
+BLUE = \033[0;34m
+RESET = \033[0m
 
-MINILIBX_PATH	=	./lib/minilibx
-MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
-
-SOURCES_FILES	=	so_long.c \
-					load_game.c \
-					load_map.c
-# SOURCES_FILES	=	so_long.c \
-# 					draw.c \
-# 					init.c \
-# 					read_map.c \
-# 					map_validate.c \
-# 					player_update.c \
-# 					gameplay.c \
-# 					exit_game.c
-
-#SOURCES_BONUS	=	so_long_bonus.c \
-# SOURCES_BONUS	=	so_long_bonus.c \
-# 					draw_bonus.c \
-# 					init_bonus.c \
-# 					read_map_bonus.c \
-# 					map_validate_bonus.c \
-# 					player_update_bonus.c \
-# 					gameplay_bonus.c \
-# 					exit_game_bonus.c \
-# 					moves_bonus.c \
-# 					animation_bonus.c
-
-BINS_DIR 		= 	bin
-OBJS_DIR 		= 	obj
-SOURCES_DIR		=	src
-SAFE_MKDIR = mkdir -p
-#BONUS_DIR		=	sources_bonus
-
-VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -q --tool=memcheck
-
-HEADER			=	$(SOURCES_DIR)/so_long.h
-#HEEADER_BONUS	=	$(BONUS_DIR)/so_long_bonus.h
-
-SOURCES			=	$(addprefix $(SOURCES_DIR)/, $(SOURCES_FILES))
-#BONUS_FILES		=	$(addprefix $(BONUS_DIR)/, $(SOURCES_BONUS))
-
-OBJECTS			= 	$(SOURCES:.c=.o)
-OBJS			=	$(SOURCES_FILES:%.c=$(OBJS_DIR)/%.o)
-#OBJECTS_BONUS	= 	$(BONUS_FILES:.c=.o)
-
-NAME			=	so_long
-#NAME_BONUS		=	so_long_bonus
-
-# Bash command
-RM				=	rm -f
+# Paths
+HEADERS_PATH = ./include/
+SRCS_PATH = ./src/
+OBJS_PATH = ./obj/
+LIBS_PATH = ./lib/
+BINS_PATH = ./bin/
 
 # Compilation
-CC				=	clang
-CFLAGS			=	-Wall -Wextra -Werror
-MLXFLAGS		=	-L. -lXext -L. -lX11
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+MLXFLAGS =	-L. -lXext -L. -lX11
 
-$(OBJS_DIR)/%.o: ./$(SOURCES_DIR)/%.c 
-	$(SAFE_MKDIR) $(OBJS_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+# Bash commands
+RM = rm -f # -f Force
+MKDIR = mkdir -p
+MAKE_NOPRINT = $(MAKE) --no-print-directory
 
-# $(OBJS_DIR)/%.o: %.c $(OBJS_DIR)
-# 	$(CC) $(CFLAGS) -c $< -o $@
+# Files
+LIBNAME = solong.a
+SRC_FILES = so_long.c load_game.c load_map.c
+			
+SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
+OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
+OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
+EXECUTABLE = ft_solong_test
 
-#.c.o:
-#	${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
-#	$(SAFE_MKDIR) ./$(OBJS_DIR)
-#	$(CC) $(CFLAGS) -c $< -o $@
-#	$(CC) $(CFLAGS) -c $< -o ./$(OBJS_DIR)/$(NAME).o 
-#	$(CC) $(CFLAGS) -c $(SOURCES) -o $(OBJS)
+# TARGETS
+all: libft $(LIBNAME)
 
-all:			$(NAME)
+# Compiles libft all over
+libft:
+	@echo "$(LIBNAME): $(BLUE)Generating... Just a minute$(RESET)"
+	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT)
+	@echo "$(LIBNAME): $(GREEN)Done!$(RESET)"
 
-test:
-	$(OBJECTS)
+# Creates static library libft.a inside ./libs/ folder
+$(LIBNAME): $(OBJECTS)
+	cp $(LIBS_PATH)/libft.a $(LIBS_PATH)$(LIBNAME)
+	ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
 
-#bonus:			$(NAME_BONUS)
+# Creates object files for ft_solong
+$(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
+	$(MKDIR) $(OBJS_PATH)
+	$(CC) $(FLAGS) $(MLXFLAGS) -c $< -I $(HEADERS_PATH) -o $@
 
-$(NAME):		$(LIBFT) $(MINILIBX) $(OBJECTS) $(HEADER)
-				$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o ./$(BINS_DIR)/$(NAME)
+#
+# RUN
+#
+# Creates the executable file $(EXECUTABLE) to test development
+main:	./apps/app.c
+	@$(MKDIR) $(BINS_PATH)
+	@$(CC) $(CFLAGS) $(MLXFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
 
-# $(NAME_BONUS):		$(LIBFT) $(MINILIBX) $(OBJECTS_BONUS) $(HEADER_BONUS)
-# 					$(CC) $(CFLAGS) $(OBJECTS_BONUS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o $(NAME_BONUS)
+# Compile program and execute main file
+run: all main
+	@$(BINS_PATH)$(EXECUTABLE)
+	@$(MAKE_NOPRINT) fclean
 
-$(LIBFT):
-				$(MAKE) -C $(LIBFT_PATH)
-
-$(MINILIBX):
-				$(MAKE) -C $(MINILIBX_PATH)
-
-valgrind: $(NAME)
-	$(VALGRIND)
-
+#
+# SANITIZE
+#
+# Removing .o files
 clean:
-				$(MAKE) -C $(LIBFT_PATH) clean
-				$(MAKE) -C $(MINILIBX_PATH) clean
-				$(RM) $(OBJS) $(OBJECTS_BONUS)
-				$(RM) ./$(BINS_DIR)/$(NAME)
+	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
+	@$(RM) $(OBJECTS)
+	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
-fclean:			clean
-				$(MAKE) -C $(LIBFT_PATH) fclean
-				$(RM) $(NAME) $(NAME_BONUS)
+# Removing .o files, .a files
+fclean: clean
+	@echo "$(LIBNAME): $(RED)was deleted$(RESET)"
+	@$(RM) $(BINS_PATH)$(EXECUTABLE)
+	@$(RM) $(LIBS_PATH)$(LIBNAME)
+	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
 norma: 
-	norminette $(SOURCES)
+	norminette $(SRCS_PATH)$(SRC_FILES)
 
-re:				fclean all
+# Removing and running
+re: fclean all
 
-.PHONY:			all clean fclean re libft minilibx bonus
+.PHONY: all run clean fclean re

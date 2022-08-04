@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_game.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 18:29:41 by rlins            ###   ########.fr       */
+/*   Created: 2022/08/03 18:35:45 by rlins             #+#    #+#             */
+/*   Updated: 2022/08/04 18:26:33 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../../include/libft.h"
 
-void	load_game(t_game *game)
+size_t	ft_strlen(const char *str)
 {
-	game->moves = 1;
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -6,19 +6,25 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 16:02:53 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/04 19:30:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "so_long.h"
+#include "../include/so_long.h"
 
-int	main(int argc, char **argv) 
+int	start(int argc, char **argv)
 {
 	t_game	game;
 
+	game.moves = 10;
+
 	if (argc == 2)
 	{
-		game.map = load_map(argv[1]);
+		char *path;
+		path = argv[1];
+		printf("Valor do path,%s", path);
+		//printf(argv[1]);
+		//game.map = load_map(argv[1]);
 		// game_init(&game);
 		// mlx_loop(game.mlx);
 
@@ -50,5 +56,5 @@ int	main(int argc, char **argv)
 	// 	printf("Error\nInvalid Sytax");
 	// 	exit(1);
 	// }
-	return (0);
+	return (game.moves );
 }

@@ -1,5 +1,7 @@
 {
     "files.associations": {
-        "float_vector.h": "c"
-    }
+		"float_vector.h": "c",
+		"libft.h": "c",
+		"so_long.h": "c"
+	}
 }
