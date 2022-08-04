@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 19:30:05 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/04 19:54:09 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,9 @@ int	start(int argc, char **argv)
 
 	if (argc == 2)
 	{
+		int tamanho;
+		tamanho = ft_strlen("ABCABC");
+		printf("Tamanho da sentença: %d\n", tamanho);
 		char *path;
 		path = argv[1];
 		printf("Valor do path,%s", path);

@@ -6,11 +6,11 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:35:45 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 18:26:33 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/04 19:51:28 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/libft.h"
+#include "../../../include/libft.h"
 
 size_t	ft_strlen(const char *str)
 {

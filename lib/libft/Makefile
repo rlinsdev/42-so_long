@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/08/04 19:18:18 by rlins             #+#    #+#              #
-#    Updated: 2022/08/04 19:19:30 by rlins            ###   ########.fr        #
+#    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
+#    Updated: 2022/08/04 20:41:01 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,7 @@ MKDIR = mkdir -p
 
 # Files
 LIBNAME = libft.a
-SRC = ft_strlen.c
+SRC_FILES =	ft_strlen.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
