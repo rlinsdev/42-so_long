@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/03 19:54:21 by rlins             #+#    #+#              #
-#    Updated: 2022/08/03 21:51:08 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/04 16:49:55 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,9 @@ LIBFT			=	$(LIBFT_PATH)/libft.a
 MINILIBX_PATH	=	./lib/minilibx
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
-SOURCES_FILES	=	so_long.c
+SOURCES_FILES	=	so_long.c \
+					load_game.c \
+					load_map.c
 # SOURCES_FILES	=	so_long.c \
 # 					draw.c \
 # 					init.c \
@@ -41,7 +43,10 @@ SOURCES_FILES	=	so_long.c
 BINS_DIR 		= 	bin
 OBJS_DIR 		= 	obj
 SOURCES_DIR		=	src
+SAFE_MKDIR = mkdir -p
 #BONUS_DIR		=	sources_bonus
+
+VALGRIND = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -q --tool=memcheck
 
 HEADER			=	$(SOURCES_DIR)/so_long.h
 #HEEADER_BONUS	=	$(BONUS_DIR)/so_long_bonus.h
@@ -64,15 +69,26 @@ CC				=	clang
 CFLAGS			=	-Wall -Wextra -Werror
 MLXFLAGS		=	-L. -lXext -L. -lX11
 
-.c.o:
-	$(CC) $(CFLAGS) -c $< -o $(OBJS)
+$(OBJS_DIR)/%.o: ./$(SOURCES_DIR)/%.c 
+	$(SAFE_MKDIR) $(OBJS_DIR)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# $(OBJS_DIR)/%.o: %.c $(OBJS_DIR)
+# 	$(CC) $(CFLAGS) -c $< -o $@
+
+#.c.o:
+#	${CC} ${CFLAGS} -Imlx -Ibass -c $< -o ${<:.c=.o}
+#	$(SAFE_MKDIR) ./$(OBJS_DIR)
+#	$(CC) $(CFLAGS) -c $< -o $@
+#	$(CC) $(CFLAGS) -c $< -o ./$(OBJS_DIR)/$(NAME).o 
+#	$(CC) $(CFLAGS) -c $(SOURCES) -o $(OBJS)
 
 all:			$(NAME)
 
 test:
 	$(OBJECTS)
 
-bonus:			$(NAME_BONUS)
+#bonus:			$(NAME_BONUS)
 
 $(NAME):		$(LIBFT) $(MINILIBX) $(OBJECTS) $(HEADER)
 				$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MINILIBX) $(MLXFLAGS) -o ./$(BINS_DIR)/$(NAME)
@@ -86,6 +102,9 @@ $(LIBFT):
 $(MINILIBX):
 				$(MAKE) -C $(MINILIBX_PATH)
 
+valgrind: $(NAME)
+	$(VALGRIND)
+
 clean:
 				$(MAKE) -C $(LIBFT_PATH) clean
 				$(MAKE) -C $(MINILIBX_PATH) clean
@@ -95,6 +114,9 @@ clean:
 fclean:			clean
 				$(MAKE) -C $(LIBFT_PATH) fclean
 				$(RM) $(NAME) $(NAME_BONUS)
+
+norma: 
+	norminette $(SOURCES)
 
 re:				fclean all
 

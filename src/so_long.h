@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/03 18:54:00 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/04 16:09:15 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 # include <stdio.h>
 # include <fcntl.h>
 
-// typedef struct s_game
-// {
-// 	void	*mlx;
-// 	void	*win;
-// 	char	**map;
+typedef struct s_game
+{
+ 	void	*mlx;
+ 	void	*win;
+ 	char	**map;
 // 	void	*img_backg;
 // 	void	*img_wall;
 // 	void	*img_player;
@@ -38,9 +38,9 @@
 // 	int		n_exit;
 // 	int		x_player;
 // 	int		y_player;
-// 	int		moves;
+ 	int		moves;
 // 	int		endgame;
-// }	t_game;
+}	t_game;
 
 // # define KEY_ESC 65307
 // # define KEY_Q 113
@@ -58,7 +58,10 @@
 // void	img_draw(t_game *game, void *image, int x, int y);
 // int		map_draw(t_game *game);
 // void	game_init(t_game *game);
-// char	**read_map(char *path);
+void	load_game(t_game *game);
+//char	**read_map(char *path);
+void	read_map();
+char	**load_map(char *path);
 // int		map_checker(t_game *game);
 // void	gameplay(t_game *game);
 // void	player_w(t_game *game);
