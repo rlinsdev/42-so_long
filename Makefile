@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/04 19:24:44 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/04 19:44:32 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,7 @@ SRC_FILES = so_long.c load_game.c load_map.c
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
-EXECUTABLE = ft_solong_test
+EXECUTABLE = so_long
 
 # TARGETS
 all: libft $(LIBNAME)
@@ -72,7 +72,6 @@ main:	./apps/app.c
 # Compile program and execute main file
 run: all main
 	@$(BINS_PATH)$(EXECUTABLE)
-	@$(MAKE_NOPRINT) fclean
 
 #
 # SANITIZE
