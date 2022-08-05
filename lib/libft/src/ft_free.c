@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   load_game.c                                        :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 20:56:08 by rlins            ###   ########.fr       */
+/*   Created: 2022/08/04 20:50:01 by rlins             #+#    #+#             */
+/*   Updated: 2022/08/04 20:51:18 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/so_long.h"
+#include "../../../include/libft.h"
 
-void	load_game(t_game *game)
+void	ft_free(char* ptr)
 {
-	game->mlx = mlx_init();
-	printf("Passou");
+	free(ptr);
+	ptr = NULL;
 }

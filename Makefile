@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/04 19:44:32 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/04 22:53:59 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,10 @@ SRCS_PATH = ./src/
 OBJS_PATH = ./obj/
 LIBS_PATH = ./lib/
 BINS_PATH = ./bin/
+
+# Minilibx
+MINILIBX_PATH	=	./lib/minilibx
+MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 # Compilation
 CC = gcc
@@ -52,7 +56,7 @@ libft:
 	@echo "$(LIBNAME): $(GREEN)Done!$(RESET)"
 
 # Creates static library libft.a inside ./libs/ folder
-$(LIBNAME): $(OBJECTS)
+$(LIBNAME): $(OBJECTS) $(MINILIBX)
 	cp $(LIBS_PATH)/libft.a $(LIBS_PATH)$(LIBNAME)
 	ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
 
@@ -60,6 +64,7 @@ $(LIBNAME): $(OBJECTS)
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 	$(MKDIR) $(OBJS_PATH)
 	$(CC) $(FLAGS) $(MLXFLAGS) -c $< -I $(HEADERS_PATH) -o $@
+	$(MAKE) -C $(MINILIBX_PATH)
 
 #
 # RUN
@@ -67,19 +72,19 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 # Creates the executable file $(EXECUTABLE) to test development
 main:	./apps/app.c
 	@$(MKDIR) $(BINS_PATH)
-	@$(CC) $(CFLAGS) $(MLXFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
+	$(CC) $(CFLAGS) $(MINILIBX) $(MLXFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
 
 # Compile program and execute main file
 run: all main
-	@$(BINS_PATH)$(EXECUTABLE)
+	@$(BINS_PATH)$(EXECUTABLE) 'PATH_DO_MAPA_AQUI!'
 
 #
 # SANITIZE
 #
-# Removing .o files
 clean:
 	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
 	@$(RM) $(OBJECTS)
+	$(MAKE) -C $(MINILIBX_PATH) clean
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
 # Removing .o files, .a files
