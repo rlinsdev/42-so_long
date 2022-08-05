@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
-#    Updated: 2022/08/04 20:51:05 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/05 08:05:08 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -54,11 +54,11 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 	@$(CC) $(FLAGS) -c -I $(HEADERS_PATH) $< -o $@
 
 clean:
-	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
+	@echo "$(GREEN)$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
 	@$(RM) $(OBJECTS)
 
 fclean:
-	@echo "$(LIBNAME): $(RED)was deleted$(RESET)"
+	@echo "$(GREEN)$(LIBNAME): $(RED)was deleted$(RESET)"
 	@$(RM) $(OBJECTS)
 	@$(RM) $(LIBS_PATH)$(LIBNAME)
 

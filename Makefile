@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/04 22:53:59 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/05 08:04:47 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,9 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 # Compilation
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-MLXFLAGS =	-L. -lXext -L. -lX11
+#MLXFLAGS =	-L. -lXext -L. -lX11
+#MLXFLAGS =	-lmlx -Imlx -lXext -lX11
+MLXFLAGS =  -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 
 # Bash commands
 RM = rm -f # -f Force
@@ -40,7 +42,7 @@ MAKE_NOPRINT = $(MAKE) --no-print-directory
 # Files
 LIBNAME = solong.a
 SRC_FILES = so_long.c load_game.c load_map.c
-			
+
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
@@ -82,14 +84,15 @@ run: all main
 # SANITIZE
 #
 clean:
-	@echo "$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
+	@echo "$(GREEN)$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
 	@$(RM) $(OBJECTS)
+	@echo "$(GREEN)Minilibx: $(RED)Clean in progres...$(RESET)"
 	$(MAKE) -C $(MINILIBX_PATH) clean
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
 # Removing .o files, .a files
 fclean: clean
-	@echo "$(LIBNAME): $(RED)was deleted$(RESET)"
+	@echo "$(GREEN)$(LIBNAME): $(RED)was deleted$(RESET)"
 	@$(RM) $(BINS_PATH)$(EXECUTABLE)
 	@$(RM) $(LIBS_PATH)$(LIBNAME)
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
