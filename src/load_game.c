@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 20:56:08 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/07 17:28:36 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	load_game(t_game *game)
 {
+	//game->moves = 10;
 	game->mlx = mlx_init();
 	printf("Passou");
 }

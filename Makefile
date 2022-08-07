@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/05 08:04:47 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/07 17:36:22 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,9 @@ OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
 EXECUTABLE = so_long
 
+# test:
+# 	@echo $(OBJECTS)
+
 # TARGETS
 all: libft $(LIBNAME)
 
@@ -74,7 +77,7 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 # Creates the executable file $(EXECUTABLE) to test development
 main:	./apps/app.c
 	@$(MKDIR) $(BINS_PATH)
-	$(CC) $(CFLAGS) $(MINILIBX) $(MLXFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
+	$(CC) $(FLAGS) $(OBJECTS) $(MINILIBX) $(MLXFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
 
 # Compile program and execute main file
 run: all main
