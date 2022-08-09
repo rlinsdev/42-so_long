@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 18:55:06 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/08 08:12:58 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/08 22:33:26 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,5 +45,15 @@ int	main(void)
 	mlx_loop(mlx);
 }
 // *--* FIM Exemplo 2 - Open Window
+
+// #include "../include/so_long.h"
+// int	main(void)
+// {
+// 	void	*img;
+// 	void	*mlx;
+
+// 	mlx = mlx_init();
+// 	img = mlx_new_image(mlx, 1920, 1080);
+// }
 
 // *--* FIM harm-smits INICIO  *--*

@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/07 17:36:22 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/08 18:23:14 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,10 +29,14 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 # Compilation
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror
+FLAGS =
+
 #MLXFLAGS =	-L. -lXext -L. -lX11
 #MLXFLAGS =	-lmlx -Imlx -lXext -lX11
 MLXFLAGS =  -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
+#MLXFLAGS = -lmlx -lXext -lX11
+#MLXFLAGS = -lbsd -lmlx -lXext -lX11
 
 # Bash commands
 RM = rm -f # -f Force

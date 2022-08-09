@@ -2,6 +2,8 @@
     "files.associations": {
 		"float_vector.h": "c",
 		"libft.h": "c",
-		"so_long.h": "c"
+		"so_long.h": "c",
+		"mlx_int.h": "c",
+		"mlx.h": "c"
 	}
 }
