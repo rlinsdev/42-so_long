@@ -1,37 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:02:29 by rlins            ###   ########.fr       */
+/*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
+/*   Updated: 2022/08/13 08:57:00 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	start(int argc, char **argv)
+int	key_press(int keycode, t_game *game)
 {
-	t_game	game;
-
-	if (argc == 2)
-	{
-		char *path;
-		path = argv[1];
-		//printf("Valor do path,%s", path);
-		load_game(&game);
-		hooks_handler(&game);
-		mlx_loop(game.mlx);
-	} 
-	else
-	{
-		printf("Error. \nParam size wrong!!\n");
-		printf("Error. \nParam size wrong!!\n");
-		printf("Error. \nParam size wrong!!\n");
-		printf("Error. \nParam size wrong!!\n");
-	}
-
-	return (game.moves );
+	printf("\nEntrou no Key Press\n");
+	//if (keycode == KEY_ESC || keycode == KEY_Q)
+	if (keycode == XK_Escape)
+		exit_game(game);
+	// else if (!game->endgame)
+	// {
+	// 	game_events(keycode, game);
+	// 	printf("Moves: %d\n", game->moves);
+	// }
+	return (keycode);
 }

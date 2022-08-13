@@ -1,37 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:02:29 by rlins            ###   ########.fr       */
+/*   Created: 2022/08/13 08:10:37 by rlins             #+#    #+#             */
+/*   Updated: 2022/08/13 09:00:28 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	start(int argc, char **argv)
+void	hooks_handler(t_game *game)
 {
-	t_game	game;
-
-	if (argc == 2)
-	{
-		char *path;
-		path = argv[1];
-		//printf("Valor do path,%s", path);
-		load_game(&game);
-		hooks_handler(&game);
-		mlx_loop(game.mlx);
-	} 
-	else
-	{
-		printf("Error. \nParam size wrong!!\n");
-		printf("Error. \nParam size wrong!!\n");
-		printf("Error. \nParam size wrong!!\n");
-		printf("Error. \nParam size wrong!!\n");
-	}
-
-	return (game.moves );
+	printf("\nEntrou no Hooks\n");
+	// TODO: Entender o que são estas setinhas <<
+	mlx_hook(game->win, 2, 1L << 0, key_press, game);
+	mlx_hook(game->win, 17, 1L << 17, exit_game, game); // TODO: Precisa deste cara?
+	// mlx_hook(game->win, 9, 1L << 21, map_draw, game);
 }
