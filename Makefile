@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/13 08:49:33 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/13 09:36:51 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -56,7 +56,7 @@ EXECUTABLE = so_long
 # test:
 # 	@echo $(OBJECTS)
 
-# TARGETS
+# Targets
 all: libft $(LIBNAME)
 
 # Compiles libft all over
@@ -76,9 +76,6 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 	$(CC) $(FLAGS) $(MLXFLAGS) -c $< -I $(HEADERS_PATH) -o $@
 	$(MAKE) -C $(MINILIBX_PATH)
 
-#
-# RUN
-#
 # Creates the executable file $(EXECUTABLE) to test development
 main:	./apps/app.c
 	@$(MKDIR) $(BINS_PATH)
@@ -88,9 +85,7 @@ main:	./apps/app.c
 run: all main
 	@$(BINS_PATH)$(EXECUTABLE) 'PATH_DO_MAPA_AQUI!'
 
-#
-# SANITIZE
-#
+# Sanitize
 clean:
 	@echo "$(GREEN)$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
 	@$(RM) $(OBJECTS)
@@ -111,4 +106,5 @@ norma:
 # Removing and running
 re: fclean all
 
+# All the variables that is not a file in source folder.
 .PHONY: all run clean fclean re

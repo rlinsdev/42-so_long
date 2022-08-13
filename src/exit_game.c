@@ -6,13 +6,13 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:01:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:01:43 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:26:28 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-void	exit_game(t_game *game)
+int	exit_game(t_game *game)
 {
 	printf("\nChamou o exit game\n");
 	// free_map(game->map);
@@ -25,4 +25,6 @@ void	exit_game(t_game *game)
 	// mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	exit(0);
+	// Must to be int to return in hooks
+	return(0);
 }

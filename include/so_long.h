@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:09:20 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:27:10 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,9 +95,9 @@ void	hooks_handler(t_game *game);
  * @brief Responsable to exit the game. Will close the window and destroy
  * the objects 
  * @param game 
- * @return void 
+ * @return int - Any thing. Must to be int return in hooks 
  */
-void	exit_game(t_game *game);
+int	exit_game(t_game *game);
 
 /**
  * @brief All the business about key press will be here. 
