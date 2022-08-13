@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:01:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:26:28 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 10:20:48 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ int	exit_game(t_game *game)
 	mlx_destroy_window(game->mlx, game->win);
 	// mlx_destroy_display(game->mlx);
 	free(game->mlx);
+	// StdLib - terminate the program
 	exit(0);
 	// Must to be int to return in hooks
 	return(0);

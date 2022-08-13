@@ -4,6 +4,9 @@
 		"libft.h": "c",
 		"so_long.h": "c",
 		"mlx_int.h": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"x.h": "c",
+		"keysym.h": "c",
+		"keysymdef.h": "c"
 	}
 }
