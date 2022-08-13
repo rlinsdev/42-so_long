@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/04 19:01:55 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/12 21:51:29 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../lib/minilibx/mlx.h"
+# include "../lib/minilibx-linux/mlx.h"
 # include "./libft.h"
 # include <stdio.h>
 # include <fcntl.h>

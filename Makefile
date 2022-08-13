@@ -6,9 +6,11 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/08 18:23:14 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/12 21:52:04 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+
+LIBNAME = solong
 
 # Collors
 GREEN = \033[0;32m
@@ -24,18 +26,18 @@ LIBS_PATH = ./lib/
 BINS_PATH = ./bin/
 
 # Minilibx
-MINILIBX_PATH	=	./lib/minilibx
+MINILIBX_PATH	=	./lib/minilibx-linux
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 # Compilation
-CC = gcc
+CC = clang
 #FLAGS = -Wall -Wextra -Werror
 FLAGS =
 
 #MLXFLAGS =	-L. -lXext -L. -lX11
 #MLXFLAGS =	-lmlx -Imlx -lXext -lX11
-MLXFLAGS =  -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
-#MLXFLAGS = -lmlx -lXext -lX11
+#MLXFLAGS =  -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
+MLXFLAGS = -lmlx -lXext -lX11
 #MLXFLAGS = -lbsd -lmlx -lXext -lX11
 
 # Bash commands
@@ -44,7 +46,6 @@ MKDIR = mkdir -p
 MAKE_NOPRINT = $(MAKE) --no-print-directory
 
 # Files
-LIBNAME = solong.a
 SRC_FILES = so_long.c load_game.c load_map.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
