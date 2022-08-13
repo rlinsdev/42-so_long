@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/13 09:36:51 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/13 09:50:03 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,6 +84,11 @@ main:	./apps/app.c
 # Compile program and execute main file
 run: all main
 	@$(BINS_PATH)$(EXECUTABLE) 'PATH_DO_MAPA_AQUI!'
+
+#Not working yet
+# valgrind:
+# 	valgrind --leak-check=full --show-leak-kinds=all 
+# 	@$(BINS_PATH)$(EXECUTABLE) 'PATH_DO_MAPA_AQUI!'
 
 # Sanitize
 clean:
