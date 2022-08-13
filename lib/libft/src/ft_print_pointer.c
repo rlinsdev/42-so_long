@@ -1,20 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   app.c                                              :+:      :+:    :+:   */
+/*   ft_print_pointer.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/04 18:55:06 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:20:12 by rlins            ###   ########.fr       */
+/*   Created: 2022/06/17 03:59:54 by rlins             #+#    #+#             */
+/*   Updated: 2022/08/13 13:50:44 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
- #include "../include/so_long.h"
+#include "../../../include/libft.h"
 
-int	main(int argc, char **argv) 
+int	ft_print_pointer(void* ptr)
 {
-	ft_printf("Duvido q deu certo!!!\n\n");
-	start(argc, argv);
-	return (0);
+	int				bytes;
+	char *str;
+	unsigned long	address; // must this type to pass in tests
+
+	if (!ptr)
+	{
+		bytes = ft_putstr(PTR_NULL);
+		return (bytes);
+	}
+	address = (unsigned long)ptr;
+	bytes = ft_putstr(INI_PTR); // Initialize of pointer
+	str = ft_itoa_base(address, HEX_BASE_LOWER);
+	bytes += ft_putstr(str);
+	ft_free(str);
+	return (bytes);
 }

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:10:37 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:27:46 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 14:19:11 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	hooks_handler(t_game *game)
 {
-	printf("\nEntrou no Hooks\n");
+	ft_printf("\nEntrou no Hooks\n");
 	// TODO: Entender o que são estas setinhas <<
 	// mlx_hook(game->win, 2, 1L << 0, key_press, game);
 	mlx_hook(game->win, KeyPress, KeyPressMask, key_press, game);

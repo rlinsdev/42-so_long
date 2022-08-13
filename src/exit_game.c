@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:01:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 10:20:48 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 14:18:04 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	exit_game(t_game *game)
 {
-	printf("\nChamou o exit game\n");
+	ft_printf("\nChamou o exit game\n");
 	// free_map(game->map);
 	// mlx_destroy_image(game->mlx, game->img_backg);
 	// mlx_destroy_image(game->mlx, game->img_wall);

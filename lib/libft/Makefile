@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
-#    Updated: 2022/08/05 08:05:08 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/13 14:12:35 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,17 @@ MKDIR = mkdir -p
 
 # Files
 LIBNAME = libft.a
-SRC_FILES =	ft_strlen.c ft_free.c
+SRC_FILES =	ft_free.c \
+			ft_itoa_base.c \
+			ft_print_char.c \
+			ft_print_dec_int.c \
+			ft_print_hexa.c \
+			ft_print_pointer.c \
+			ft_print_string.c \
+			ft_printf.c \
+			ft_putchar.c \
+			ft_putstr.c \
+			ft_strlen.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
