@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 08:57:00 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:04:50 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	key_press(int keycode, t_game *game)
 {
-	printf("\nEntrou no Key Press\n");
+	printf("\nEntrou no Key Press");
 	//if (keycode == KEY_ESC || keycode == KEY_Q)
 	if (keycode == XK_Escape)
 		exit_game(game);

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:01:10 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 09:09:20 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <fcntl.h>
 #include <X11/keysym.h> // TODO: Ver se isso é proibido
+#include <X11/X.h> // TODO: Ver se isso é proibido
 
 typedef struct s_game
 {
