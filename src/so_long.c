@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 09:02:29 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 10:16:09 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	start(int argc, char **argv)
 	{
 		char *path;
 		path = argv[1];
-		//printf("Valor do path,%s", path);
+		printf("Valor do path,%s", path);
 		load_game(&game);
 		hooks_handler(&game);
 		mlx_loop(game.mlx);

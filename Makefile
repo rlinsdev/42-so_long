@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/13 09:50:03 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/13 10:17:09 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,10 @@ MINILIBX_PATH	=	./lib/minilibx-linux
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 # Compilation
-CC = clang
-#FLAGS = -Wall -Wextra -Werror
-FLAGS =
+#CC = clang ERRO AO USAR AS FLAGS DESTA FORMA
+CC = gcc
+FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra
 
 #MLXFLAGS =	-L. -lXext -L. -lX11
 #MLXFLAGS =	-lmlx -Imlx -lXext -lX11
