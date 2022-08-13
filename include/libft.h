@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:17 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:15:13 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/13 14:50:18 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <limits.h>
- # include <stdarg.h> // All the macros to use variable args (va_list)
+# include <stdarg.h> // All the macros to use variable args (va_list)
 
 # ifndef BUFFER_SIZE
 # define BUFFER_SIZE 128
@@ -50,5 +50,51 @@ int		ft_print_hexa(unsigned int nbr, char spec);
 void	ft_putchar(char c);
 int		ft_putstr(char* str);
 char*	ft_itoa_base(unsigned long long nbr, char* base);
+
+/**
+* @brief Searches for the first occurrence of the character c 
+* (an unsigned char) in the string pointed to by the argument str.
+* @param s - This is the C string to be scanned.
+* @param c This is the character to be searched in str
+* @return This returns a pointer to the first occurrence of the 
+* character c in the string str, or NULL if the character is not found
+*/
+char	*ft_strchr(const char *s, int c);
+
+/**
+* @brief isascii in c checks the passed value is ascii character or not.
+* @param argument to check
+* @return This function returns non-zero value if passed value is ascii character
+* otherwise zero.
+*/
+int		ft_isascii(int argument);
+
+/**
+* @brief Allocates (with malloc(3)) and returns a new string, 
+* which is the result of the concatenation of ’s1’ and ’s2’.
+* @param s1: The prefix string.
+* @param s2: The suffix string.
+* @return The new string. NULL if the allocation fails.
+*/
+char	*ft_strjoin(char *s1, char *s2);
+
+/**
+ * @brief Responsable to identify the new line, add a new (if found)
+ * and return the current line. It will clean the first line until the 
+ * break line.
+ * @param text to analyze and 'substring' until de break line.
+ * @return the line changed / corrected
+ */
+char	*fix_line(char	*text);
+
+/**
+ * @brief Will retrieve the begin of new sentence. This was the 'dirty' the 
+ * previews sentence.What was discarted in previews sentence, is necessary 
+ * to the next, and this function will
+ * get just this part of text.
+ * @param acc - The Accummulator (previews static variable)
+ * @return char* - Part of sentence, that will be used, in the next iteration
+ */
+char	*get_newtext(char	*acc);
 
 #endif

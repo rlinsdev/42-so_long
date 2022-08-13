@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
-#    Updated: 2022/08/13 14:12:35 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/13 14:49:51 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,11 @@ SRC_FILES =	ft_free.c \
 			ft_printf.c \
 			ft_putchar.c \
 			ft_putstr.c \
-			ft_strlen.c
+			ft_strlen.c \
+			ft_get_next_line_utils.c \
+			ft_get_next_line.c \
+			ft_strchr.c \
+			ft_isascii.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
