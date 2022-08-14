@@ -1,97 +1,120 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 07:05:38 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:29:45 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 11:24:28 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
+static int	is_endl(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	if (str[i] == '\n')
+		return (1);
+	return (0);
+}
+
+static char	*get_line(char **buffer_backup)
+{
+	char	*line;
+	int		i;
+
+	i = 0;
+	if (!buffer_backup)
+		return (NULL);
+	while ((*buffer_backup)[i] != '\0' && (*buffer_backup)[i] != '\n')
+		i++;
+	line = ft_substr(*buffer_backup, 0, i + is_endl(*buffer_backup));
+	if (!line)
+	{
+		free(line);
+		return (NULL);
+	}
+	return (line);
+}
+
+static char	*get_backup(char **buffer_backup)
+{
+	char	*backup;
+	int		i;
+
+	i = 0;
+	if (!buffer_backup)
+		return (NULL);
+	while ((*buffer_backup)[i] != '\0' && (*buffer_backup)[i] != '\n')
+		i++;
+	if ((*buffer_backup)[i] == '\0')
+	{
+		free(*buffer_backup);
+		return (NULL);
+	}
+	backup = ft_substr(*buffer_backup, i + 1, ft_strlen(*buffer_backup) - i);
+	if (!backup)
+	{
+		free(backup);
+		return (NULL);
+	}
+	free(*buffer_backup);
+	return (backup);
+}
+
+static int	read_file(int fd, char **buffer, char **buffer_backup, char **line)
+{
+	int		bytes_read;
+	char	*holder;
+
+	bytes_read = 1;
+	while (is_endl(*buffer_backup) != 1 && bytes_read > 0)
+	{
+		bytes_read = read(fd, *buffer, BUFFER_SIZE);
+		(*buffer)[bytes_read] = '\0';
+		holder = *buffer_backup;
+		*buffer_backup = ft_strjoin(holder, *buffer);
+		free(holder);
+	}
+	free(*buffer);
+	*line = get_line(buffer_backup);
+	if (**line == '\0')
+	{
+		free(*line);
+		*line = NULL;
+	}
+	*buffer_backup = get_backup(buffer_backup);
+	return (bytes_read);
+}
+
 char	*get_next_line(int fd)
 {
-	static char		*accumulator;
-	char			*result;
-	char			*buffer;
-	int				read_size;
+	ft_printf("AAAAA\n");
+	char		*buffer;
+	static char	*buffer_backup;
+	char		*line;
+	int			bytes_read;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) == -1)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	buffer = malloc(sizeof(char *) * (BUFFER_SIZE + 1));
+	buffer = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buffer)
 		return (NULL);
-	read_size = 1;
-	while (read_size > 0 && ft_strchr(accumulator, '\n') == NULL)
+	if (read(fd, buffer, 0) < 0)
 	{
-		read_size = read(fd, buffer, BUFFER_SIZE);
-		if (read_size > 0)
-		{
-			buffer[read_size] = '\0';
-			accumulator = ft_strjoin(accumulator, buffer);
-		}
-	}
-	free(buffer);
-	result = fix_line (accumulator);
-	accumulator = get_newtext (accumulator);
-	return (result);
-}
-
-char	*get_newtext(char *acc)
-{
-	char	*result;
-	int		count;
-	int		i;
-
-	count = 0;
-	i = 0;
-	if (!acc || !acc[0])
-	{
-		free (acc);
+		free(buffer);
 		return (NULL);
 	}
-	while (acc[count] && acc[count] != '\n')
-		count++;
-	result = (char *)malloc((sizeof(char) * (ft_strlen(acc) - count) + 1));
-	if (!result)
+	if (!buffer_backup)
+		buffer_backup = ft_strdup("");
+	bytes_read = read_file(fd, &buffer, &buffer_backup, &line);
+	if (bytes_read == 0 && !line)
 		return (NULL);
-	if (acc[count] == '\n')
-		count++;
-	while (acc[count])
-		result[i++] = acc[count++];
-	result[i] = '\0';
-	free(acc);
-	return (result);
-}
-
-char	*fix_line(char *text)
-{
-	int		size_line;
-	char	*result;
-	int		i;
-
-	i = 0;
-	size_line = 0;
-	if (!text || !text[0])
-		return (NULL);
-	while (text[size_line] && text[size_line] != '\n')
-		size_line++;
-	result = (char *)malloc((sizeof(char) * (size_line + 2)));
-	if (!result)
-		return (NULL);
-	while (text[i] && text[i] != '\n')
-	{
-		result[i] = text[i];
-		i++;
-	}
-	if (text[i] && text[i] == '\n')
-	{
-		result[i] = '\n';
-		i++;
-	}
-	result[i] = '\0';
-	return (result);
+	return (line);
 }
