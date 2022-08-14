@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:16:52 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 09:50:06 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "../lib/minilibx-linux/mlx.h"
 # include "./libft.h"
 // # include <stdio.h>
-# include <fcntl.h>
+# include <fcntl.h> // To Open a file
 #include <X11/keysym.h> // TODO: Ver se isso é proibido
 #include <X11/X.h> // TODO: Ver se isso é proibido
 
@@ -25,14 +25,14 @@ typedef struct s_game
 {
  	void	*mlx;
  	void	*win;
- 	char	**map;
+ 	char	**map; // TODO: Porque ponteiro de ponteiro?
 // 	void	*img_backg;
 // 	void	*img_wall;
 // 	void	*img_player;
 // 	void	*img_colect;
 // 	void	*img_exit;
-// 	int		map_w;
-// 	int		map_h;
+	int		map_w;
+	int		map_h;
 // 	int		img_w;
 // 	int		img_h;
 // 	int		n_colect;
@@ -68,8 +68,7 @@ int	start(int argc, char **argv);
 // void	img_draw(t_game *game, void *image, int x, int y);
 // int		map_draw(t_game *game);
 // void	game_init(t_game *game);
-//char	**read_map(char *path);
-void	read_map();
+char	**read_map(char *path);
 char	**load_map(char *path);
 // int		map_checker(t_game *game);
 // void	player_w(t_game *game);

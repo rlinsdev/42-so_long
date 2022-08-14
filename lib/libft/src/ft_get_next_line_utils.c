@@ -6,41 +6,41 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 07:09:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:33:01 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 10:25:07 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../../include/libft.h"
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	i;
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	int	i;
 
-	i = 0;
-	if (!s)
-		return (0);
-	if (c == 0)
-		return ((char *)&s[i]);
-	while (s[i])
-	{
-		if (s[i] == (char)c)
-			return ((char *)&s[i]);
-		i++;
-	}
-	return (NULL);
-}
+// 	i = 0;
+// 	if (!s)
+// 		return (0);
+// 	if (c == 0)
+// 		return ((char *)&s[i]);
+// 	while (s[i])
+// 	{
+// 		if (s[i] == (char)c)
+// 			return ((char *)&s[i]);
+// 		i++;
+// 	}
+// 	return (NULL);
+// }
 
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
+// size_t	ft_strlen(const char *str)
+// {
+// 	size_t	i;
 
-	i = 0;
-	if (!str)
-		return (0);
-	while (str[i] != '\0')
-		i++;
-	return (i);
-}
+// 	i = 0;
+// 	if (!str)
+// 		return (0);
+// 	while (str[i] != '\0')
+// 		i++;
+// 	return (i);
+// }
 
 char	*ft_strjoin(char *s1, char *s2)
 {

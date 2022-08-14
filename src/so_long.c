@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:17:17 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 10:13:56 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int	start(int argc, char **argv)
 
 	if (argc == 2)
 	{
-		char *path;
-		path = argv[1];
-		ft_printf("Valor do path,%s", path);
+		//char *path;
+		//path = argv[1];
+		ft_printf("Mapa: %s\n", argv[1]);
+		game.map = read_map(argv[1]);
+		//ft_printf("Valor do path,%s", path);
 		load_game(&game);
 		hooks_handler(&game);
 		mlx_loop(game.mlx);
@@ -28,10 +30,9 @@ int	start(int argc, char **argv)
 	else
 	{
 		ft_printf("Error. \nParam size wrong!!\n");
-		ft_printf("Error. \nParam size wrong!!\n");
-		ft_printf("Error. \nParam size wrong!!\n");
-		ft_printf("Error. \nParam size wrong!!\n");
+		// Stlib.h - Exit - close program
+		exit(1);
 	}
 
-	return (game.moves );
+	return (0);
 }

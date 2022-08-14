@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/13 10:17:09 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/14 10:32:17 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,8 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 # Compilation
 #CC = clang ERRO AO USAR AS FLAGS DESTA FORMA
 CC = gcc
-FLAGS = -Wall -Wextra -Werror
-#FLAGS = -Wall -Wextra
+#FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra
 
 #MLXFLAGS =	-L. -lXext -L. -lX11
 #MLXFLAGS =	-lmlx -Imlx -lXext -lX11
@@ -84,7 +84,7 @@ main:	./apps/app.c
 
 # Compile program and execute main file
 run: all main
-	@$(BINS_PATH)$(EXECUTABLE) 'PATH_DO_MAPA_AQUI!'
+	@$(BINS_PATH)$(EXECUTABLE) maps/map_3x5.ber
 
 #Not working yet
 # valgrind:
