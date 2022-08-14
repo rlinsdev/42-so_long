@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:17 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:50:18 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 10:56:56 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	ft_free(char* ptr);
 // char	*ft_strdup(const char *s);
 // char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
-// char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 // char	*get_next_line(int fd);
-// char	**ft_split(char const *s, char c);
+char	**ft_split(char const *s, char c);
 // char	*ft_itoa(int n);
 
 int		ft_printf(const char* str, ...);
