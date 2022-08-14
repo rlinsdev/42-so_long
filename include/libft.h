@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:17 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 10:56:56 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 11:20:56 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@
 # endif
 
 void	ft_free(char* ptr);
-// char	*ft_strdup(const char *s);
-// char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strdup(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
-// char	*get_next_line(int fd);
+char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
 // char	*ft_itoa(int n);
 
@@ -68,15 +68,6 @@ char	*ft_strchr(const char *s, int c);
 * otherwise zero.
 */
 int		ft_isascii(int argument);
-
-/**
-* @brief Allocates (with malloc(3)) and returns a new string, 
-* which is the result of the concatenation of ’s1’ and ’s2’.
-* @param s1: The prefix string.
-* @param s2: The suffix string.
-* @return The new string. NULL if the allocation fails.
-*/
-char	*ft_strjoin(char *s1, char *s2);
 
 /**
  * @brief Responsable to identify the new line, add a new (if found)
