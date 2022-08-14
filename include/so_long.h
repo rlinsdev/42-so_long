@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 09:50:06 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 15:54:14 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ typedef struct s_game
 // 	int		endgame;
 }	t_game;
 
+# define IMG_PXL 32
 // # define KEY_ESC 65307
 // # define KEY_Q 113
 
@@ -68,7 +69,7 @@ int	start(int argc, char **argv);
 // void	img_draw(t_game *game, void *image, int x, int y);
 // int		map_draw(t_game *game);
 // void	game_init(t_game *game);
-char	**read_map(char *path);
+// char	**read_map(char *path);
 char	**load_map(char *path);
 // int		map_checker(t_game *game);
 // void	player_w(t_game *game);

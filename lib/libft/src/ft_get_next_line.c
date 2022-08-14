@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/16 07:05:38 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 11:24:28 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 11:27:48 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ static int	read_file(int fd, char **buffer, char **buffer_backup, char **line)
 
 char	*get_next_line(int fd)
 {
-	ft_printf("AAAAA\n");
 	char		*buffer;
 	static char	*buffer_backup;
 	char		*line;

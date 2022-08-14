@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 10:11:34 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 15:54:38 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 static	void window_size(t_game *game)
 {
-	// todo: apague
-	game->moves++;
-
+	int i;
+	// Any line in map * 32 px
+	game->map_w = ft_strlen(game->map[0]) * IMG_PXL;
+	i = 0;
+	while (game->map[i] != (void * )0)
+		i++;
+	game->map_h = i * IMG_PXL;
 }
 
 void	load_game(t_game *game)
 {
 	game->mlx = mlx_init();
 	window_size(game);
-	game->win = mlx_new_window(game->mlx, 500, 500, "So_Long");
+	game->win = mlx_new_window(game->mlx, game->map_w, game->map_h, "So_Long");
 	ft_printf("\nAbrir janela\n");
 
 	// Initialize variables
