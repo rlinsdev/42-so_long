@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/14 15:56:31 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/14 16:45:36 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,13 @@ MKDIR = mkdir -p
 MAKE_NOPRINT = $(MAKE) --no-print-directory
 
 # Files
-SRC_FILES = so_long.c load_game.c load_map.c exit_game.c hooks.c key_events.c
+SRC_FILES = so_long.c \
+			load_game.c \
+			load_map.c \
+			exit_game.c \
+			hooks.c \
+			key_events.c \
+			draw_imgs.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))

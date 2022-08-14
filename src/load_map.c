@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:25:45 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 15:57:16 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 16:52:15 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	**load_map(char *path)
 	while(1)
 	{
 		line = get_next_line(fd);
-		ft_printf("Vlr Line: %s\n", line);
+		//ft_printf("Vlr Line: %s\n", line);
 		if (!line)
 			break;
 		holder = accumulator;

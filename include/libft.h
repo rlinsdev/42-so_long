@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:17 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 11:20:56 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/14 16:31:27 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 
 # ifndef BUFFER_SIZE
 # define BUFFER_SIZE 128
+
 # define HEX_BASE_LOWER	"0123456789abcdef"
 # define HEX_BASE_UPPER	"0123456789ABCDEF"
 # define DEC_BASE		"0123456789"
