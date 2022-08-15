@@ -6,10 +6,9 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 16:43:35 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 07:38:25 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
@@ -26,10 +25,10 @@ typedef struct s_game
  	void	*mlx;
  	void	*win;
  	char	**map; // TODO: Porque ponteiro de ponteiro?
-	void	*img_backgroud;
-	void	*img_limit;
+	void	*img_empty;
+	void	*img_wall;
 	void	*img_player;
-	void	*img_gift;
+	void	*img_collectible;
 	void	*img_exit;
 	int		map_w;
 	int		map_h;
@@ -87,7 +86,6 @@ void	load_game(t_game *game);
 
 /**
  * @brief Will handler the hooks - Mlx with windows actions
- * 
  * @param game obj game by ref
  */
 void	hooks_handler(t_game *game);
@@ -108,7 +106,10 @@ int	exit_game(t_game *game);
  */
 int	key_press(int keycode, t_game *game);
 
-
-// void	free_map(char **map);
+/**
+ * @brief Will clean all references about map
+ * @param map 
+ */
+void	free_map(char **map);
 
 #endif
