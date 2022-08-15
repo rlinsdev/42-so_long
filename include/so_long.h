@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 08:04:15 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 08:16:43 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@
 
 typedef struct s_game
 {
- 	void	*mlx;
- 	void	*win;
- 	char	**map; // TODO: Porque ponteiro de ponteiro?
+	void	*mlx;
+	void	*win;
+	char	**map; // TODO: Porque ponteiro de ponteiro?
 	void	*img_empty;
 	void	*img_wall;
 	void	*img_player;
@@ -34,9 +34,9 @@ typedef struct s_game
 	int		map_h;
 // 	int		img_w;
 // 	int		img_h;
-// 	int		n_colect;
-// 	int		n_player;
-// 	int		n_exit;
+	int		n_collectible;
+	int		n_player;
+	int		n_exit;
 // 	int		x_player;
 // 	int		y_player;
  	int		moves;
