@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 07:38:25 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 08:04:15 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,14 @@ void	map_draw_img(t_game *game);
 // void	game_init(t_game *game);
 // char	**read_map(char *path);
 char	**load_map(char *path);
-// int		map_checker(t_game *game);
+
+/**
+ * @brief Verify if the map is correct. Rectangular and with the 
+ * specific tags 
+ * @param game 
+ * @return int (1 = valid) (0 = invalid)
+ */
+int		valid_map(t_game *game);
 // void	player_w(t_game *game);
 // void	player_d(t_game *game);
 // void	player_s(t_game *game);
