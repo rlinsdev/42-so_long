@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 08:26:05 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 13:39:07 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ static	int valid_char_pec(t_game *game)
 
 	while (game->map[i] != (void *)0)
 	{
+		j = 0;
 		while (game->map[i][j] != (void *)0)
 		{
 			if(game->map[i][j] == 'P')
@@ -52,15 +53,42 @@ static	int valid_char_pec(t_game *game)
 		}
 		i++;
 	}
+	ft_printf("AAAA");
 	// Verify number of occurrence
-	if (game->n_player != 1 || game->n_exit <= 0 || game->n_collectible <= 0)
+	if (game->n_player != 1 || game->n_exit == 0 || game->n_collectible == 0)
 		return (0);
 	return(1);
 }
 
+// TODO: Porque um char de ponteiro pra ponteiro?
+static	int valid_all_char(char **map)
+{
+	int	i;
+	int	j;
+
+	i = 0;
+	while (map[i][j] != (void *)0) // TODO: Não poderia ser void null ou só ! ???
+	{
+		j = 0;
+		
+		while (map[i][j] != '\0')
+		{
+			if(map[i][j] != 'P' &&
+				map[i][j] != 'E' &&
+				map[i][j] != 'C' &&
+				map[i][j] != '0' &&
+				map[i][j] != '1')
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
 int	valid_map(t_game *game)
 {
-	if (valid_shape(game->map) && valid_char_pec(game))
+	if (valid_shape(game->map) && valid_char_pec(game) && valid_all_char(game->map))
 		return (1);
 	else
 		return (0);

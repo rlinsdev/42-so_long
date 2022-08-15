@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/15 07:58:01 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/15 13:35:08 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,8 +91,8 @@ main:	./apps/app.c
 
 # Compile program and execute main file
 run: all main
-	@$(BINS_PATH)$(EXECUTABLE) maps/map_3x5.ber
-#	@$(BINS_PATH)$(EXECUTABLE) maps/map_5x13.ber
+#	@$(BINS_PATH)$(EXECUTABLE) maps/map_3x5.ber
+	@$(BINS_PATH)$(EXECUTABLE) maps/map_5x13.ber
 #	@$(BINS_PATH)$(EXECUTABLE) maps/map_6x34.ber
 
 #Not working yet
