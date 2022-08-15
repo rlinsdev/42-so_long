@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 13:39:07 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 15:30:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ static	int valid_char_pec(t_game *game)
 		}
 		i++;
 	}
-	ft_printf("AAAA");
 	// Verify number of occurrence
 	if (game->n_player != 1 || game->n_exit == 0 || game->n_collectible == 0)
 		return (0);
@@ -86,9 +85,39 @@ static	int valid_all_char(char **map)
 	return (1);
 }
 
+int	static valid_wall(char **map)
+{
+	int i;
+	int j;
+	int	colum_size;
+
+	i = 0;
+	while (map[i] != (void *)0)
+		i++;
+	// Will validate the first and the last line
+	while (map[0][j] != '\0' && map[(i-1)][j] != '\0')
+	{
+		if(map[0][j] != '1' || map[(i-1)][j] != '1')
+			return (0);
+		j++;
+	}
+
+	// Will validate the firs and the last colum
+	i = 1;
+	colum_size = ft_strlen(map[i]);
+	while (map[i] != '\0')
+	{
+		if (map[i][0] != '1' || map[i][(colum_size-1)] != '1')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 int	valid_map(t_game *game)
 {
-	if (valid_shape(game->map) && valid_char_pec(game) && valid_all_char(game->map))
+	if (valid_shape(game->map) && valid_char_pec(game) &&
+	 valid_all_char(game->map) && valid_wall(game->map))
 		return (1);
 	else
 		return (0);

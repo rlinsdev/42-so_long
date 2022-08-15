@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:20:42 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 22:41:43 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 14:45:58 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,6 @@ void	map_draw_img(t_game *game)
 				put_img(game, game->img_collectible, x, y);
 			else if (game->map[y][x] == 'E')
 				put_img(game, game->img_exit, x, y);
-
-
 			x++;
 		}
 		y++;
