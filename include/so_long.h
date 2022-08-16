@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 15:47:36 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 21:54:53 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,14 @@ int		valid_map(t_game *game);
  * @param game 
  */
 void	load_game(t_game *game);
+
+/**
+ * @brief
+ * 
+ * @param path 
+ * @return int 
+ */
+int	valid_extension(char *path);
 
 /**
  * @brief Will handler the hooks - Mlx with windows actions

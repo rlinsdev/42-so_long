@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:01:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 07:36:05 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/16 08:26:24 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,10 @@ void	free_map(char **map)
 	i = 0;
 	while (map[i] != (void *)0)
 	{
-		// free(map[i]);
-		ft_free(map[i]);
+		free(map[i]);
 		i++;
 	}
-	// free(map);
-	ft_free(map);
+	free(map);
 }
 
 int	exit_game(t_game *game)
