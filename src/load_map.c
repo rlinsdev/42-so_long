@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:25:45 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 16:52:15 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/15 15:48:22 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	**load_map(char *path)
 			break;
 		holder = accumulator;
 		accumulator = ft_strjoin(holder, line);
-		ft_printf("Vlr do accumulator: %s\n", accumulator);
+		//ft_printf("Vlr do accumulator: %s\n", accumulator);
 		free(line);
 		free(holder);
 	}
