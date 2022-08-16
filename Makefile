@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/16 18:27:43 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/16 18:39:43 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,8 +69,8 @@ OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
 EXECUTABLE = so_long
 
-test:
-	@echo $(BINS_PATH)$(EXECUTABLE) $(MAP)
+# test:
+# 	@echo $(BINS_PATH)$(EXECUTABLE) $(MAP)
 
 # Targets
 all: libft $(LIBNAME)
