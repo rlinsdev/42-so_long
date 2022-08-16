@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/15 13:35:08 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/16 18:27:43 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,11 @@ OBJS_PATH = ./obj/
 LIBS_PATH = ./lib/
 BINS_PATH = ./bin/
 
+# maps
+#MAP = maps/map_3x5.ber
+MAP = maps/map_5x13.ber
+#MAP = maps/map_6x34.ber
+
 # Minilibx
 MINILIBX_PATH	=	./lib/minilibx-linux
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
@@ -34,6 +39,9 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 CC = gcc
 #FLAGS = -Wall -Wextra -Werror
 FLAGS = -Wall -Wextra
+
+#Chedk Leadk memory
+LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
 #MLXFLAGS =	-L. -lXext -L. -lX11
 #MLXFLAGS =	-lmlx -Imlx -lXext -lX11
@@ -61,8 +69,8 @@ OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
 OBJECTS = $(addprefix $(OBJS_PATH), $(OBJ_FILES))
 EXECUTABLE = so_long
 
-# test:
-# 	@echo $(OBJECTS)
+test:
+	@echo $(BINS_PATH)$(EXECUTABLE) $(MAP)
 
 # Targets
 all: libft $(LIBNAME)
@@ -91,14 +99,7 @@ main:	./apps/app.c
 
 # Compile program and execute main file
 run: all main
-#	@$(BINS_PATH)$(EXECUTABLE) maps/map_3x5.ber
-	@$(BINS_PATH)$(EXECUTABLE) maps/map_5x13.ber
-#	@$(BINS_PATH)$(EXECUTABLE) maps/map_6x34.ber
-
-#Not working yet
-# valgrind:
-# 	valgrind --leak-check=full --show-leak-kinds=all 
-# 	@$(BINS_PATH)$(EXECUTABLE) 'PATH_DO_MAPA_AQUI!'
+	@$(BINS_PATH)$(EXECUTABLE) $(MAP)
 
 # Sanitize
 clean:
@@ -117,6 +118,9 @@ fclean: clean
 
 norma: 
 	norminette $(SRCS_PATH)$(SRC_FILES)
+
+valgrind:
+	$(LEAK) $(BINS_PATH)$(EXECUTABLE) $(MAP)
 
 # Removing and running
 re: fclean all
