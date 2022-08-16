@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/16 08:35:22 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/16 18:51:48 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	start(int argc, char **argv)
 		}
 		else
 		{
+			if (game.map)
+				free_map(game.map);
 			ft_printf("Error(1).\nInvalid Map. Verify specifications!!\n");
 			exit(1);
 			//TODO: Chamar o método de exit aqui?

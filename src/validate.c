@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/16 08:30:16 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/16 18:54:46 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	int valid_shape(char **map)
 {
-	ft_printf(map[0]);
+	//ft_printf(map[0]);
 	int	i;
 	
 	i = 0;
@@ -93,6 +93,7 @@ static	int valid_wall(char **map)
 	int	colum_size;
 
 	i = 0;
+	j = 0;
 	while (map[i] != (void *)0)
 		i++;
 	// Will validate the first and the last line
