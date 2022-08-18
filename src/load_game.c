@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/17 21:25:31 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 07:46:40 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,10 @@ static	void window_size(t_game *game)
 	game->map_h = i * IMG_PXL_SZ;
 }
 
+/**
+ * @brief Define the image for each object in game stucture
+ * @param game object
+ */
 static	void setup_imgs(t_game *game)
 {
 	game->img_empty = mlx_xpm_file_to_image(game->mlx, "img/0.xpm", &game->map_w, &game->map_h);
