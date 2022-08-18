@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/15 21:54:53 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/17 21:47:40 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ typedef struct s_game
 	void	*img_exit;
 	int		map_w;
 	int		map_h;
+	int		img_w;
+	int		img_h;
 	int		n_collectible;
 	int		n_player;
 	int		n_exit;
-// 	int		x_player;
-// 	int		y_player;
+ 	int		x_player;
+ 	int		y_player;
  	int		moves;
-// 	int		endgame;
+ 	int		endgame;
 }	t_game;
 
 # define IMG_PXL_SZ 32
@@ -81,6 +83,10 @@ int		valid_map(t_game *game);
 // void	player_d(t_game *game);
 // void	player_s(t_game *game);
 // void	player_a(t_game *game);
+void	press_w(t_game *game);
+void	press_d(t_game *game);
+void	press_a(t_game *game);
+void	press_s(t_game *game);
 
 /**
  * @brief 

@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/16 18:39:43 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/17 21:17:53 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,8 +27,8 @@ BINS_PATH = ./bin/
 
 # maps
 #MAP = maps/map_3x5.ber
-MAP = maps/map_5x13.ber
-#MAP = maps/map_6x34.ber
+#MAP = maps/map_5x13.ber
+MAP = maps/map_6x34.ber
 
 # Minilibx
 MINILIBX_PATH	=	./lib/minilibx-linux
@@ -62,7 +62,8 @@ SRC_FILES = so_long.c \
 			hooks.c \
 			key_events.c \
 			draw_imgs.c \
-			validate.c
+			validate.c \
+			move.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))

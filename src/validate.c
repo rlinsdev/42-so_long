@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/16 18:54:46 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/17 15:32:18 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,11 @@ static	int valid_char_pec(t_game *game)
 		while (game->map[i][j] != '\0') // TODO: Nao podia ser (void *0)?
 		{
 			if(game->map[i][j] == 'P')
-				game->n_player++;
+				game->n_player++; // Number of players in game
 			if(game->map[i][j] == 'C')
-				game->n_collectible++;
+				game->n_collectible++; // Number of Collectibles in game
 			if(game->map[i][j] == 'E')
-				game->n_exit++;
+				game->n_exit++; // Number of exits in game
 			j++;
 		}
 		i++;
