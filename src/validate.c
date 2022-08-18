@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/17 15:32:18 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 19:42:13 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 static	int valid_shape(char **map)
 {
-	//ft_printf(map[0]);
 	int	i;
 	
 	i = 0;
-
 	while (map[i] != (void *)0)
 	{
 		if(ft_strlen(map[0]) != ft_strlen(map[i]))

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 09:08:30 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 19:52:01 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,14 @@
 
 static void	player_update_image(t_game *game, char key)
 {
-	mlx_destroy_image(game->mlx, game->img_player);
-	if (key == 'd' || key == 'w')
-		game->img_player = mlx_xpm_file_to_image(game->mlx, "img/p.xpm", &game->img_w, &game->img_h);
-	else if (key == 'a' || key == 's')
-		game->img_player = mlx_xpm_file_to_image(game->mlx, "img/pa.xpm", &game->img_w, &game->img_h);
+	if(key == 'a' || key == 'd')
+	{
+		mlx_destroy_image(game->mlx, game->img_player);
+		if (key == 'd')
+			game->img_player = mlx_xpm_file_to_image(game->mlx, "img/p.xpm", &game->img_w, &game->img_h);
+		else if (key == 'a')
+			game->img_player = mlx_xpm_file_to_image(game->mlx, "img/pa.xpm", &game->img_w, &game->img_h);
+	}
 }
 
 static void	update_x_axio(t_game *game, char key)
@@ -45,11 +48,11 @@ static void person_walk(t_game *game, char key)
 		update_x_axio(game, key);
 }
 
-
 static void	press_key(t_game *game, char key)
 {
 	player_update_image(game, key);
 
+	// No More Collectons, and is exit
 	if (game->map[game->y_player][game->x_player] == 'E'
 			&& game->n_collectible == 0)
 	{
@@ -65,7 +68,6 @@ static void	press_key(t_game *game, char key)
 		game->y_player += 1;
 	else
 	{
-		
 		mlx_clear_window(game->mlx, game->win);
 		if (game->map[game->y_player][game->x_player] == 'C')
 			game->n_collectible -= 1;
