@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:01:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/16 08:26:24 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 08:16:42 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	free_map(char **map)
 
 int	exit_game(t_game *game)
 {
-	ft_printf("\nChamou o exit game\n");
+	//ft_printf("\nChamou o exit game\n");
 	free_map(game->map);
 	mlx_destroy_image(game->mlx, game->img_empty);
 	mlx_destroy_image(game->mlx, game->img_wall);

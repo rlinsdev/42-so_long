@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/17 21:49:34 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 08:10:32 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,25 +17,28 @@ static	void handle_keys(int keycode, t_game *game)
 	if (keycode == XK_w || keycode == XK_Up)
 	{
 		ft_printf("\nw apertado - %d\n", keycode);
+		game->y_player -= 1;
 		press_w(game);
 		game->moves++;
 	}
 	else if (keycode == XK_a || keycode == XK_Left)
 	{
 		ft_printf("\na apertado - %d\n", keycode);
+		game->x_player -= 1;
 		press_a(game);
 		game->moves++;
 	}
 	else if (keycode == XK_s || keycode == XK_Down)
 	{
 		ft_printf("\ns apertado - %d\n", keycode);
+		game->y_player += 1;
 		press_s(game);
 		game->moves++;
 	}
 	else if (keycode == XK_d || keycode == XK_Right)
 	{
 		ft_printf("\nd apertado - %d\n", keycode);
-		//game->x_player =  game->x_player + 1;
+		game->x_player += 1;
 		press_d(game);
 		game->moves++;
 	}

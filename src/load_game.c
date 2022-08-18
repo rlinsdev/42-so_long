@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 07:46:40 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 08:20:19 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	load_game(t_game *game)
 	game->win = mlx_new_window(game->mlx, game->map_w, game->map_h, "So_Long");
 	// Initialize variables
 	game->moves = 0;
-	//game->endgame = 0;
+	game->endgame = 0;
 	setup_imgs(game);
 	//ft_printf("entrou????");
 	map_draw_img(game);

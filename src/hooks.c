@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:10:37 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 14:19:11 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 08:17:25 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,5 @@ void	hooks_handler(t_game *game)
 	// mlx_hook(game->win, 17, 1L << 17, exit_game, game); // TODO: Precisa deste cara?
 	mlx_hook(game->win, DestroyNotify, StructureNotifyMask, exit_game, game); // TODO: Precisa deste cara?
 	// mlx_hook(game->win, 9, 1L << 21, map_draw, game);
+	mlx_hook(game->win, FocusIn, FocusChangeMask, map_draw_img, game); // TODO: Precisa deste cara?
 }
