@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 19:52:01 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 20:28:45 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,18 @@ static	void update_y_axio(t_game *game, char key)
 		game->map[game->y_player - 1][game->x_player] = '0';
 }
 
+static void person_stop(t_game *game, char key)
+{
+	if (key == 'w')
+		game->y_player += 1;
+	else if (key == 'a')
+		game->x_player += 1;
+	else if (key == 'd')
+		game->x_player -= 1;
+	else if (key == 's')
+		game->y_player -= 1;
+}
+
 static void person_walk(t_game *game, char key)
 {
 	if(key == 'w' || key == 's')
@@ -63,16 +75,17 @@ static void	press_key(t_game *game, char key)
 		game->endgame = 1;
 		map_draw_img(game);
 	}
+	// If you try hit a Wall or exit without collect all, it's not allow
 	else if (game->map[game->y_player][game->x_player] == '1'
 			|| game->map[game->y_player][game->x_player] == 'E')
-		game->y_player += 1;
+		person_stop(game, key);
 	else
 	{
 		mlx_clear_window(game->mlx, game->win);
+		// Decrement collectable, if this is the type
 		if (game->map[game->y_player][game->x_player] == 'C')
 			game->n_collectible -= 1;
 		game->map[game->y_player][game->x_player] = 'P';
-		// game->map[game->y_player + 1][game->x_player] = '0';
 		person_walk(game, key);
 		game->moves++;
 		map_draw_img(game);
