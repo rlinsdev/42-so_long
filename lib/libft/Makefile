@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/04 19:44:22 by roaraujo          #+#    #+#              #
-#    Updated: 2022/08/14 11:19:48 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/18 18:47:22 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ SRC_FILES =	ft_free.c \
 			ft_split.c \
 			ft_substr.c \
 			ft_strdup.c \
-			ft_strjoin.c
+			ft_strjoin.c \
+			ft_memcmp.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))

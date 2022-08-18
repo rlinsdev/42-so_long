@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:17 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/14 16:31:27 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 18:47:00 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,5 +88,16 @@ char	*fix_line(char	*text);
  * @return char* - Part of sentence, that will be used, in the next iteration
  */
 char	*get_newtext(char	*acc);
+
+/**
+* @brief Compares the first n bytes of memory area str1 and memory area str2
+* @param str1 − This is the pointer to a block of memory.
+* @param str2 − This is the pointer to a block of memory.
+* @param len − This is the number of bytes to be compared.
+* @return if Return value < 0 then it indicates str1 is less than str2.
+*if Return value > 0 then it indicates str2 is less than str1.
+*if Return value = 0 then it indicates str1 is equal to str2.
+*/
+int		ft_memcmp(const void *str1, const void *str2, size_t len);
 
 #endif
