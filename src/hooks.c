@@ -6,12 +6,17 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:10:37 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 08:17:25 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 08:33:35 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
+/**
+ * @brief Hooks looks like a trigger.
+ * This method will handler the hooks in project.
+ * @param game 
+ */
 void	hooks_handler(t_game *game)
 {
 	ft_printf("\nEntrou no Hooks\n");
