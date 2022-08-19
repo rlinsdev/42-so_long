@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/19 13:54:02 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/19 18:55:13 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -118,7 +118,7 @@ fclean: clean
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
 norma: 
-	norminette $(SRCS_PATH)$(SRC_FILES)
+	norminette $(SOURCES)
 
 valgrind:
 	$(LEAK) $(BINS_PATH)$(EXECUTABLE) $(MAP)
