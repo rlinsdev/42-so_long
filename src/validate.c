@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 13:30:46 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:23:55 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @param map 
  * @return int 
  */
-static	int valid_shape(char **map) // TODO: Porque ponteiro de ponteiro?
+static	int valid_shape(char **map)
 {
 	int	i;
 	

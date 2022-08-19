@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 13:28:03 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:29:50 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,6 @@ static	void handle_keys(int keycode, t_game *game)
 	}
 }
 
-/**
- * @brief Called by Hook key press.
- * Any key pressed in window, will call this function 
- * @param keycode 
- * @param game 
- * @return int. Important to MLX framework return a int
- */
 int	key_press(int keycode, t_game *game)
 {
 	// Exit game when esc

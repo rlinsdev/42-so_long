@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 22:34:42 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:25:53 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ int	start(int argc, char **argv)
 	else
 	{
 		ft_printf("Error(2).\nParam size wrong!!\n");
-		// Stlib.h - Exit - close program
 		exit(1);
 	}
 	return (0);

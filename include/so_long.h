@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 13:16:16 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 18:29:46 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,28 @@ typedef struct s_game
 // # define KEY_RIGHT 65363
 
 /**
- * @brief 
- * 
- * @param argc 
- * @param argv 
+ * @brief First method in game.
+ * It'll be called by main / app.cs 
+ * @param argc Arguments count
+ * @param argv Arguments Vector
  * @return int 
  */
 int	start(int argc, char **argv);
+
+/**
+ * @brief Will loop through all char in maps (.ber file)
+ * and will put the correspondent img to each char 
+ * @param game 
+ * @return int 
+ */
 int	map_draw_img(t_game *game);
+
+/**
+ * @brief Will read the file map, line by line get all
+ * the information, and return this like a 2D matrix 
+ * @param path 
+ * @return char** obj map
+ */
 char	**load_map(char *path);
 
 /**
@@ -130,10 +144,11 @@ void	hooks_handler(t_game *game);
 int	exit_game(t_game *game);
 
 /**
- * @brief All the business about key press will be here. 
- * @param keycode Code of key pressed
- * @param game obj game by ref
- * @return int - Key Code pressed
+ * @brief Called by Hook key press.
+ * Any key pressed in window, will call this function 
+ * @param keycode 
+ * @param game 
+ * @return int. Important to MLX framework return a int
  */
 int	key_press(int keycode, t_game *game);
 
