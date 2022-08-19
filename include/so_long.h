@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 22:54:02 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 13:16:16 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,21 +75,41 @@ char	**load_map(char *path);
  * @return int (1 = valid) (0 = invalid)
  */
 int		valid_map(t_game *game);
+
+/**
+ * @brief Capture the W press key 
+ * @param game Object game
+ */
 void	press_w(t_game *game);
+
+/**
+ * @brief Capture the D press key 
+ * @param game Object game
+ */
 void	press_d(t_game *game);
+
+/**
+ * @brief Capture the a press key 
+ * @param game Object game
+ */
 void	press_a(t_game *game);
+
+/**
+ * @brief Capture the S press key 
+ * @param game Object game
+ */
 void	press_s(t_game *game);
 
 /**
- * @brief 
- * 
- * @param game 
+ * @brief Will setup all the begin configuration of game.
+ * Initializing all mlx configurations 
+ * @param game Game object
  */
 void	load_game(t_game *game);
 
 /**
- * @brief
- * 
+ * @brief Validate the extension of map
+ * (.ber)
  * @param path 
  * @return int 
  */
