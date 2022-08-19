@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/17 21:17:53 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/18 22:37:24 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,8 +37,8 @@ MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 # Compilation
 #CC = clang ERRO AO USAR AS FLAGS DESTA FORMA
 CC = gcc
-#FLAGS = -Wall -Wextra -Werror
-FLAGS = -Wall -Wextra
+FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra
 
 #Chedk Leadk memory
 LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
