@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 20:28:45 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 08:15:21 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	update_x_axio(t_game *game, char key)
 {
 	if (key == 'a')
 		game->map[game->y_player][game->x_player + 1] = '0';
-	else if (key = 'd')
+	else
 		game->map[game->y_player][game->x_player - 1] = '0';
 }
 
