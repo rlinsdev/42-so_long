@@ -6,19 +6,25 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 19:42:13 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 23:12:16 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-static	int valid_shape(char **map)
+/**
+ * @brief Check if the map is retangular
+ * @param map 
+ * @return int 
+ */
+static	int valid_shape(char **map) // TODO: Porque ponteiro de ponteiro?
 {
 	int	i;
 	
 	i = 0;
 	while (map[i] != (void *)0)
 	{
+		// Check if the first line in map is the same size compare with others.
 		if(ft_strlen(map[0]) != ft_strlen(map[i]))
 			return (0);
 		i++;
@@ -26,21 +32,27 @@ static	int valid_shape(char **map)
 	return (1);
 }
 
+/**
+ * @brief Count and validate all chars P C E
+ * @param game 
+ * @return int 
+ */
 static	int valid_char_pec(t_game *game)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	// Setup the number of Char
+	// Startup the number of Char
 	game->n_collectible = 0;
 	game->n_player = 0;
 	game->n_exit = 0;
 
-	while (game->map[i] != (void *)0)
+	// loop between all itens in map
+	while (game->map[i] != (void *)0) // comparison between pointer and zero
 	{
 		j = 0;
-		while (game->map[i][j] != '\0') // TODO: Nao podia ser (void *0)?
+		while (game->map[i][j] != '\0') // comparison between pointer and integer
 		{
 			if(game->map[i][j] == 'P')
 				game->n_player++; // Number of players in game
@@ -58,19 +70,24 @@ static	int valid_char_pec(t_game *game)
 	return(1);
 }
 
-// TODO: Porque um char de ponteiro pra ponteiro?
+/**
+ * @brief 
+ * 
+ * @param map. Pointer to pointer. 2D Char array
+ * @return int 
+ */
 static	int valid_all_char(char **map)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	while (map[i] != (void *)0) // TODO: Não poderia ser void null ou só ! ???
+	while (map[i] != (void *)0) // comparison between pointer and zero
 	{
-		j = 0;
-		
-		while (map[i][j] != '\0')
+		j = 0;		
+		while (map[i][j] != '\0') // comparison between pointer and integer
 		{
+			// The chars must be between this 5 types
 			if(map[i][j] != 'P' &&
 				map[i][j] != 'E' &&
 				map[i][j] != 'C' &&
@@ -84,6 +101,12 @@ static	int valid_all_char(char **map)
 	return (1);
 }
 
+/**
+ * @brief Verify if all the boards are number 1 (Wall). 
+ * 
+ * @param map 
+ * @return int 
+ */
 static	int valid_wall(char **map)
 {
 	int i;
@@ -92,12 +115,14 @@ static	int valid_wall(char **map)
 
 	i = 0;
 	j = 0;
+	// Count all the line
 	while (map[i] != (void *)0)
 		i++;
 	// Will validate the first and the last line
-	while (map[0][j] != '\0' && map[(i-1)][j] != '\0')
+	while (map[0][j] != '\0' && map[i - 1][j] != '\0')
 	{
-		if(map[0][j] != '1' || map[(i-1)][j] != '1')
+		if(map[0][j] != '1' || // First line in array
+			map[i - 1][j] != '1') // Last line in array
 			return (0);
 		j++;
 	}
@@ -105,19 +130,28 @@ static	int valid_wall(char **map)
 	// Will validate the firs and the last colum
 	i = 1;
 	colum_size = ft_strlen(map[i]);
+	ft_printf("%d", colum_size);
 	while (map[i] != (void *)0)
 	{
-		if (map[i][0] != '1' || map[i][(colum_size-1)] != '1')
+		if (map[i][0] != '1' || // First register
+			map[i][(colum_size-1)] != '1') // Last register
 			return (0);
 		i++;
 	}
 	return (1);
 }
 
+/**
+ * @brief Validate the extension of map
+ * 
+ * @param path 
+ * @return int 
+ */
 int	valid_extension(char *path)
 {
 	int	len;
 
+	// Must to exist the path of map
 	if (!path)
 		return (0);
 
