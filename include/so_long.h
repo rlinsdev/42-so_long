@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/17 21:47:40 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/18 22:54:02 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_game
 {
 	void	*mlx;
 	void	*win;
-	char	**map; // TODO: Porque ponteiro de ponteiro?
+	char	**map; // Pointer to pointer. 2D character array.
 	void	*img_empty;
 	void	*img_wall;
 	void	*img_player;
@@ -65,11 +65,7 @@ typedef struct s_game
  * @return int 
  */
 int	start(int argc, char **argv);
-// void	img_draw(t_game *game, void *image, int x, int y);
-// int		map_draw(t_game *game);
-void	map_draw_img(t_game *game);
-// void	game_init(t_game *game);
-// char	**read_map(char *path);
+int	map_draw_img(t_game *game);
 char	**load_map(char *path);
 
 /**
@@ -79,10 +75,6 @@ char	**load_map(char *path);
  * @return int (1 = valid) (0 = invalid)
  */
 int		valid_map(t_game *game);
-// void	player_w(t_game *game);
-// void	player_d(t_game *game);
-// void	player_s(t_game *game);
-// void	player_a(t_game *game);
 void	press_w(t_game *game);
 void	press_d(t_game *game);
 void	press_a(t_game *game);
