@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:20:42 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 08:12:04 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 19:15:53 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@
  * @param x coordinates define where the image should be placed in the window.
  * @param y coordinates define where the image should be placed in the window.
  */
-static	void put_img(t_game *game, void *img, int x, int y)
+static void	put_img(t_game *game, void *img, int x, int y)
 {
-	mlx_put_image_to_window(game->mlx, game->win, img, x * IMG_PXL_SZ, y * IMG_PXL_SZ);
+	mlx_put_image_to_window(game->mlx, game->win, img, x * IMG_PXL_SZ,
+		y * IMG_PXL_SZ);
 }
 
 /**
@@ -33,7 +34,7 @@ static	void put_img(t_game *game, void *img, int x, int y)
  * @param x coordinates define where the image should be placed in the window.
  * @param y coordinates define where the image should be placed in the window.
  */
-static	void setup_exit_img(t_game *game, int x, int y)
+static void	setup_exit_img(t_game *game, int x, int y)
 {
 	// If all collectible was done
 	if (game->n_collectible == 0)
@@ -42,7 +43,7 @@ static	void setup_exit_img(t_game *game, int x, int y)
 		mlx_destroy_image(game->mlx, game->img_exit);
 		// Change img to new exit
 		game->img_exit = mlx_xpm_file_to_image(
-			game->mlx, "img/e-2.xpm", &game->img_w, &game->img_h);
+				game->mlx, "img/e-2.xpm", &game->img_w, &game->img_h);
 	}
 	put_img(game, game->img_exit, x, y);
 }
@@ -54,7 +55,7 @@ static	void setup_exit_img(t_game *game, int x, int y)
  * @param x coordinates define where the image should be placed in the window.
  * @param y coordinates define where the image should be placed in the window.
  */
-static	void setup_player_img(t_game *game, int x, int y)
+static void	setup_player_img(t_game *game, int x, int y)
 {
 	game->x_player = x;
 	game->y_player = y;
@@ -64,7 +65,7 @@ static	void setup_player_img(t_game *game, int x, int y)
 int	map_draw_img(t_game *game)
 {
 	int	x;
-	int y;
+	int	y;
 
 	y = 0;
 	while (game->map[y])
@@ -87,5 +88,5 @@ int	map_draw_img(t_game *game)
 		}
 		y++;
 	}
-	return(0);
+	return (0);
 }
