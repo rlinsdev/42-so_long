@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 23:12:16 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 13:30:46 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,12 +141,6 @@ static	int valid_wall(char **map)
 	return (1);
 }
 
-/**
- * @brief Validate the extension of map
- * 
- * @param path 
- * @return int 
- */
 int	valid_extension(char *path)
 {
 	int	len;
