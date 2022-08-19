@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.c                                          :+:      :+:    :+:   */
+/*   validate_extension.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 18:58:12 by rlins            ###   ########.fr       */
+/*   Created: 2022/08/19 19:05:26 by rlins             #+#    #+#             */
+/*   Updated: 2022/08/19 19:10:30 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/so_long.h"
 
-int	start(int argc, char **argv)
+int	valid_extension(char *path)
 {
-	t_game	game;
+	int	len;
 
-	if (argc == 2)
-	{
-		game.map = load_map(argv[1]);
-		if (valid_map(&game) && valid_extension(argv[1]))
-		{
-			load_game(&game);
-			hooks_handler(&game);
-			mlx_loop(game.mlx);
-		}
-		else
-		{
-			if (game.map)
-				free_map(game.map);
-			ft_printf("Error(1).\nInvalid Map. Verify specifications!!\n");
-			exit(1);
-		}
-	}
-	else
-	{
-		ft_printf("Error(2).\nParam size wrong!!\n");
-		exit(1);
-	}
+	// Must to exist the path of map
+	if (!path)
+		return (0);
+	len = ft_strlen(path);
+	// TODO: Se não houver leaks de memória, melhorar com substring isso aqui
+	len -= 1;
+	if (path[len] == 'r' && path[len - 1] == 'e' && path[len - 2] == 'b'
+		&& path [len - 3] == '.')
+		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 18:23:55 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/19 19:07:29 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,15 @@
  * @param map 
  * @return int 
  */
-static	int valid_shape(char **map)
+static int	valid_shape(char **map)
 {
 	int	i;
-	
+
 	i = 0;
 	while (map[i] != (void *)0)
 	{
 		// Check if the first line in map is the same size compare with others.
-		if(ft_strlen(map[0]) != ft_strlen(map[i]))
+		if (ft_strlen(map[0]) != ft_strlen(map[i]))
 			return (0);
 		i++;
 	}
@@ -37,7 +37,7 @@ static	int valid_shape(char **map)
  * @param game 
  * @return int 
  */
-static	int valid_char_pec(t_game *game)
+static int	valid_char_pec(t_game *game)
 {
 	int	i;
 	int	j;
@@ -47,7 +47,6 @@ static	int valid_char_pec(t_game *game)
 	game->n_collectible = 0;
 	game->n_player = 0;
 	game->n_exit = 0;
-
 	// loop between all itens in map
 	while (game->map[i] != (void *)0) // comparison between pointer and zero
 	{
@@ -67,7 +66,7 @@ static	int valid_char_pec(t_game *game)
 	// Verify number of occurrence
 	if (game->n_player != 1 || game->n_exit == 0 || game->n_collectible == 0)
 		return (0);
-	return(1);
+	return (1);
 }
 
 /**
@@ -141,28 +140,10 @@ static	int valid_wall(char **map)
 	return (1);
 }
 
-int	valid_extension(char *path)
-{
-	int	len;
-
-	// Must to exist the path of map
-	if (!path)
-		return (0);
-
-	len = ft_strlen(path);
-	
-	// TODO: Se não houver leaks de memória, melhorar com substring isso aqui
-	len -= 1;
-	if (path[len] == 'r' && path[len - 1] == 'e' && path[len - 2] == 'b'
-		&& path [len - 3] == '.')
-		return (1);
-	return (0);
-}
-
 int	valid_map(t_game *game)
 {
-	if (valid_shape(game->map) && valid_char_pec(game) &&
-	 valid_all_char(game->map) && valid_wall(game->map))
+	if (valid_shape(game->map) && valid_char_pec(game)
+		&& valid_all_char(game->map) && valid_wall(game->map))
 		return (1);
 	else
 		return (0);

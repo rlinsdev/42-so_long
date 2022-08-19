@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/19 18:55:13 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/19 19:09:39 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,8 @@ SRC_FILES = so_long.c \
 			key_events.c \
 			draw_imgs.c \
 			validate.c \
-			move.c
+			move.c \
+			validate_extension.c
 
 SOURCES = $(addprefix $(SRCS_PATH), $(SRC_FILES))
 OBJ_FILES = $(patsubst %.c, %.o, $(SRC_FILES))
