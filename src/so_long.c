@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:31:20 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 18:58:12 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 15:18:09 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	start(int argc, char **argv)
 	if (argc == 2)
 	{
 		game.map = load_map(argv[1]);
-		if (valid_map(&game) && valid_extension(argv[1]))
+		if (game.map && valid_map(&game) && valid_extension(argv[1]))
 		{
 			load_game(&game);
 			hooks_handler(&game);
