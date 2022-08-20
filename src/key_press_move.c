@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 16:09:41 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 16:19:33 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:27:54 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	press_w(t_game *game)
 	press_key(game, W_KEY_CONST);
 }
 
-void person_rollback(t_game *game, char key)
+void	person_rollback(t_game *game, char key)
 {
 	if (key == W_KEY_CONST)
 		game->y_player += 1;

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 15:27:34 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:28:33 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @param keycode KeyCode of keybord pressed
  * @param game Game object
  */
-static	void handle_keys(int keycode, t_game *game)
+static void	handle_keys(int keycode, t_game *game)
 {
 	if (keycode == XK_w || keycode == XK_Up)
 	{
