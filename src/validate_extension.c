@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/19 19:05:26 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 19:10:30 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 13:23:54 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 int	valid_extension(char *path)
 {
+	int	i;
 	int	len;
+	char	*extension;
 
-	// Must to exist the path of map
-	if (!path)
-		return (0);
 	len = ft_strlen(path);
-	// TODO: Se não houver leaks de memória, melhorar com substring isso aqui
-	len -= 1;
-	if (path[len] == 'r' && path[len - 1] == 'e' && path[len - 2] == 'b'
-		&& path [len - 3] == '.')
-		return (1);
-	return (0);
+	extension = "reb.";
+	i = 4;
+
+	while(i > 0)
+	{
+		if (path[len-i] != extension[i-1])
+			return (0);
+		i--;
+	}
+	return (1);
 }
