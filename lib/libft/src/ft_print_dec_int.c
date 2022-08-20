@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 04:03:10 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/13 13:50:41 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 17:10:10 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 int	ft_print_dec_int(long nbr)
 {
 	int			bytes;
-	char* result;
+	char		*result;
 	int			neg;
-	// Must to be long long. If no, it�s not possible to cast INT_MIN
 	long long	aux;
 
 	aux = nbr;

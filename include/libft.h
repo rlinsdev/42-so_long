@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:36:17 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 18:47:00 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 17:00:52 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,16 +38,12 @@ size_t	ft_strlen(const char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*get_next_line(int fd);
 char	**ft_split(char const *s, char c);
-// char	*ft_itoa(int n);
-
 int		ft_printf(const char* str, ...);
-
 int		ft_print_char(char c);
 int		ft_print_string(char* str);
 int		ft_print_dec_int(long nbr);
 int		ft_print_pointer(void* ptr);
 int		ft_print_hexa(unsigned int nbr, char spec);
-
 void	ft_putchar(char c);
 int		ft_putstr(char* str);
 char*	ft_itoa_base(unsigned long long nbr, char* base);
