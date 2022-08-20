@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/19 19:09:39 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/20 08:28:05 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,19 +35,13 @@ MINILIBX_PATH	=	./lib/minilibx-linux
 MINILIBX		=	$(MINILIBX_PATH)/libmlx.a
 
 # Compilation
-#CC = clang ERRO AO USAR AS FLAGS DESTA FORMA
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
-#FLAGS = -Wall -Wextra
 
-#Chedk Leadk memory
+#Chedk Leak memory
 LEAK = valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s
 
-#MLXFLAGS =	-L. -lXext -L. -lX11
-#MLXFLAGS =	-lmlx -Imlx -lXext -lX11
-#MLXFLAGS =  -ldl -Imlx -Lmlx -lmlx -lm -lbsd -lXext -lX11
 MLXFLAGS = -lmlx -lXext -lX11
-#MLXFLAGS = -lbsd -lmlx -lXext -lX11
 
 # Bash commands
 RM = rm -f # -f Force
