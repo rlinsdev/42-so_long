@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 13:24:46 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:06:34 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ static void	player_update_image(t_game *game, char key)
 		mlx_destroy_image(game->mlx, game->img_player);
 		// Restoring player image
 		if (key == 'd')
-			game->img_player = mlx_xpm_file_to_image(game->mlx, "img/p.xpm", &game->img_w, &game->img_h);
+			game->img_player = mlx_xpm_file_to_image(game->mlx, P_XPM, &game->img_w, &game->img_h);
 		else if (key == 'a')
-			game->img_player = mlx_xpm_file_to_image(game->mlx, "img/pa.xpm", &game->img_w, &game->img_h);
+			game->img_player = mlx_xpm_file_to_image(game->mlx, P_A_XPM, &game->img_w, &game->img_h);
 	}
 }
 

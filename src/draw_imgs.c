@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:20:42 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 19:15:53 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:00:43 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ static void	setup_exit_img(t_game *game, int x, int y)
 		mlx_destroy_image(game->mlx, game->img_exit);
 		// Change img to new exit
 		game->img_exit = mlx_xpm_file_to_image(
-				game->mlx, "img/e-2.xpm", &game->img_w, &game->img_h);
+				game->mlx, EXIT_2_XPM, &game->img_w, &game->img_h);
 	}
 	put_img(game, game->img_exit, x, y);
 }

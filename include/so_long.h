@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 09:39:11 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 10:59:33 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,18 +43,14 @@ typedef struct s_game
 }	t_game;
 
 # define IMG_PXL_SZ 32
-// # define KEY_ESC 65307
-// # define KEY_Q 113
 
-// # define KEY_W 119
-// # define KEY_A 97
-// # define KEY_S 115
-// # define KEY_D 100
-
-// # define KEY_UP 65362
-// # define KEY_LEFT 65361
-// # define KEY_DOWN 65364
-// # define KEY_RIGHT 65363
+# define EMPTY_XPM 		"img/0.xpm"
+# define WALL_XPM 		"img/1.xpm"
+# define COLLE_XPM 		"img/c.xpm"
+# define EXIT_XPM 		"img/e.xpm"
+# define EXIT_2_XPM 	"img/e-2.xpm"
+# define P_A_XPM 		"img/pa.xpm"
+# define P_XPM 			"img/p.xpm"
 
 /**
  * @brief First method in game.
