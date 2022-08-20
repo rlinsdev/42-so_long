@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:06:34 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:22:20 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ static void	press_key(t_game *game, char key)
 	player_update_image(game, key);
 
 	// if no More Collectons, and is exit
-	if (game->map[game->y_player][game->x_player] == 'E'
+	if (game->map[game->y_player][game->x_player] == EXIT_CONST
 			&& game->n_collectible == 0)
 	{
 		mlx_clear_window(game->mlx, game->win);
@@ -113,16 +113,16 @@ static void	press_key(t_game *game, char key)
 		map_draw_img(game);
 	}
 	// If you try hit a Wall or exit without collect all, it's not allow
-	else if (game->map[game->y_player][game->x_player] == '1'
-			|| game->map[game->y_player][game->x_player] == 'E')
+	else if (game->map[game->y_player][game->x_player] == WALL_CONST
+			|| game->map[game->y_player][game->x_player] == EXIT_CONST)
 		person_rollback(game, key);
 	else
 	{
 		mlx_clear_window(game->mlx, game->win);
 		// Decrement collectable, if this is the type
-		if (game->map[game->y_player][game->x_player] == 'C')
+		if (game->map[game->y_player][game->x_player] == COLLEC_CONST)
 			game->n_collectible -= 1;
-		game->map[game->y_player][game->x_player] = 'P';
+		game->map[game->y_player][game->x_player] = PLAYER_CONST;
 		update_previous_char_to_empty(game, key);
 		game->moves++;
 		map_draw_img(game);

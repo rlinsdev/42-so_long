@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/14 16:20:42 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:00:43 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:15:50 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,15 @@ int	map_draw_img(t_game *game)
 		// Loop between all the chars
 		while (game->map[y][x])
 		{
-			if (game->map[y][x] == '1')
+			if (game->map[y][x] == WALL_CONST)
 				put_img(game, game->img_wall, x, y);
-			else if (game->map[y][x] == '0')
+			else if (game->map[y][x] == BACK_G_CONST)
 				put_img(game, game->img_empty, x, y);
-			else if (game->map[y][x] == 'P')
+			else if (game->map[y][x] == PLAYER_CONST)
 				setup_player_img(game, x, y);
-			else if (game->map[y][x] == 'C')
+			else if (game->map[y][x] == COLLEC_CONST)
 				put_img(game, game->img_collectible, x, y);
-			else if (game->map[y][x] == 'E')
+			else if (game->map[y][x] == EXIT_CONST)
 				setup_exit_img(game, x, y);
 			x++;
 		}

@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 19:07:29 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:22:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ static int	valid_char_pec(t_game *game)
 		j = 0;
 		while (game->map[i][j] != '\0') // comparison between pointer and integer
 		{
-			if(game->map[i][j] == 'P')
+			if(game->map[i][j] == PLAYER_CONST)
 				game->n_player++; // Number of players in game
-			if(game->map[i][j] == 'C')
+			if(game->map[i][j] == COLLEC_CONST)
 				game->n_collectible++; // Number of Collectibles in game
-			if(game->map[i][j] == 'E')
+			if(game->map[i][j] == EXIT_CONST)
 				game->n_exit++; // Number of exits in game
 			j++;
 		}
@@ -87,11 +87,11 @@ static	int valid_all_char(char **map)
 		while (map[i][j] != '\0') // comparison between pointer and integer
 		{
 			// The chars must be between this 5 types
-			if(map[i][j] != 'P' &&
-				map[i][j] != 'E' &&
-				map[i][j] != 'C' &&
-				map[i][j] != '0' &&
-				map[i][j] != '1')
+			if(map[i][j] != PLAYER_CONST &&
+				map[i][j] != EXIT_CONST &&
+				map[i][j] != COLLEC_CONST &&
+				map[i][j] != BACK_G_CONST &&
+				map[i][j] != WALL_CONST)
 				return (0);
 			j++;
 		}
@@ -120,8 +120,8 @@ static	int valid_wall(char **map)
 	// Will validate the first and the last line
 	while (map[0][j] != '\0' && map[i - 1][j] != '\0')
 	{
-		if(map[0][j] != '1' || // First line in array
-			map[i - 1][j] != '1') // Last line in array
+		if(map[0][j] != WALL_CONST || // First line in array
+			map[i - 1][j] != WALL_CONST) // Last line in array
 			return (0);
 		j++;
 	}
@@ -132,8 +132,8 @@ static	int valid_wall(char **map)
 	ft_printf("%d", colum_size);
 	while (map[i] != (void *)0)
 	{
-		if (map[i][0] != '1' || // First register
-			map[i][(colum_size-1)] != '1') // Last register
+		if (map[i][0] != WALL_CONST || // First register
+			map[i][(colum_size-1)] != WALL_CONST) // Last register
 			return (0);
 		i++;
 	}

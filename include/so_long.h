@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 10:59:33 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:16:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,12 @@ typedef struct s_game
 }	t_game;
 
 # define IMG_PXL_SZ 32
+
+# define WALL_CONST		'1'
+# define BACK_G_CONST 	'0'
+# define COLLEC_CONST  	'C'
+# define PLAYER_CONST	'P'
+# define EXIT_CONST		'E'
 
 # define EMPTY_XPM 		"img/0.xpm"
 # define WALL_XPM 		"img/1.xpm"
