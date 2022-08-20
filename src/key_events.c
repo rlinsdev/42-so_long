@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 18:29:50 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 13:38:10 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,18 @@ static	void handle_keys(int keycode, t_game *game)
 {
 	if (keycode == XK_w || keycode == XK_Up)
 	{
-		ft_printf("\nw apertado - %d\n", keycode);
 		press_w(game);
 	}
 	else if (keycode == XK_a || keycode == XK_Left)
 	{
-		ft_printf("\na apertado - %d\n", keycode);
 		press_a(game);
 	}
 	else if (keycode == XK_s || keycode == XK_Down)
 	{
-		ft_printf("\ns apertado - %d\n", keycode);
 		press_s(game);
 	}
 	else if (keycode == XK_d || keycode == XK_Right)
 	{
-		ft_printf("\nd apertado - %d\n", keycode);
 		press_d(game);
 	}
 }
@@ -49,7 +45,7 @@ int	key_press(int keycode, t_game *game)
 	else if (!game->endgame)
 	{
 		handle_keys(keycode, game);
-		ft_printf("Number of Movements: %d", game->moves);
+		ft_printf("Number of Movements: %d\n", game->moves);
 	}
 	// When endgame==1, just stop to take actions
 	return (0);

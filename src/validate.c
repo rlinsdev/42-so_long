@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:22:05 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 13:37:11 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,6 @@ static	int valid_wall(char **map)
 	// Will validate the firs and the last colum
 	i = 1;
 	colum_size = ft_strlen(map[i]);
-	ft_printf("%d", colum_size);
 	while (map[i] != (void *)0)
 	{
 		if (map[i][0] != WALL_CONST || // First register
