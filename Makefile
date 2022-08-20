@@ -6,11 +6,11 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/20 08:28:05 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/20 09:27:06 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-LIBNAME = solong
+NAME = solong
 
 # Collors
 GREEN = \033[0;32m
@@ -69,18 +69,18 @@ EXECUTABLE = so_long
 # 	@echo $(BINS_PATH)$(EXECUTABLE) $(MAP)
 
 # Targets
-all: libft $(LIBNAME)
+all: libft $(NAME)
 
 # Compiles libft all over
 libft:
-	@echo "$(LIBNAME): $(BLUE)Generating... Just a minute$(RESET)"
+	@echo "$(NAME): $(BLUE)Generating... Just a minute$(RESET)"
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT)
-	@echo "$(LIBNAME): $(GREEN)Done!$(RESET)"
+	@echo "$(NAME): $(GREEN)Done!$(RESET)"
 
 # Creates static library libft.a inside ./libs/ folder
-$(LIBNAME): $(OBJECTS) $(MINILIBX)
-	cp $(LIBS_PATH)/libft.a $(LIBS_PATH)$(LIBNAME)
-	ar -rcs $(LIBS_PATH)$(LIBNAME) $(OBJECTS)
+$(NAME): $(OBJECTS) $(MINILIBX)
+	cp $(LIBS_PATH)/libft.a $(LIBS_PATH)$(NAME)
+	ar -rcs $(LIBS_PATH)$(NAME) $(OBJECTS)
 
 # Creates object files for ft_solong
 $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
@@ -91,7 +91,7 @@ $(OBJS_PATH)%.o : $(SRCS_PATH)%.c $(HEADERS_PATH)*.h
 # Creates the executable file $(EXECUTABLE) to test development
 main:	./apps/app.c
 	@$(MKDIR) $(BINS_PATH)
-	$(CC) $(FLAGS) $(OBJECTS) $(MINILIBX) $(MLXFLAGS) $< $(LIBS_PATH)$(LIBNAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
+	$(CC) $(FLAGS) $(OBJECTS) $(MINILIBX) $(MLXFLAGS) $< $(LIBS_PATH)$(NAME) -I $(HEADERS_PATH) -o $(BINS_PATH)$(EXECUTABLE)
 
 # Compile program and execute main file
 run: all main
@@ -99,7 +99,7 @@ run: all main
 
 # Sanitize
 clean:
-	@echo "$(GREEN)$(LIBNAME): $(RED)object (*.o) files were deleted$(RESET)"
+	@echo "$(GREEN)$(NAME): $(RED)object (*.o) files were deleted$(RESET)"
 	@$(RM) $(OBJECTS)
 	@echo "$(GREEN)Minilibx: $(RED)Clean in progres...$(RESET)"
 	$(MAKE) -C $(MINILIBX_PATH) clean
@@ -107,9 +107,9 @@ clean:
 
 # Removing .o files, .a files
 fclean: clean
-	@echo "$(GREEN)$(LIBNAME): $(RED)was deleted$(RESET)"
+	@echo "$(GREEN)$(NAME): $(RED)was deleted$(RESET)"
 	@$(RM) $(BINS_PATH)$(EXECUTABLE)
-	@$(RM) $(LIBS_PATH)$(LIBNAME)
+	@$(RM) $(LIBS_PATH)$(NAME)
 	@cd $(LIBS_PATH)libft && $(MAKE_NOPRINT) $@
 
 norma: 
