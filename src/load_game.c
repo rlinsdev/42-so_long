@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:00:39 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:25:57 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
  * @brief Responsable to get the size of window
  * @param game 
  */
-static	void window_size(t_game *game)
+static void	window_size(t_game *game)
 {
-	int i;
+	int	i;
 	// Any line in map * 32 px
 	game->map_w = ft_strlen(game->map[0]) * IMG_PXL_SZ;
 	i = 0;
@@ -32,19 +32,19 @@ static	void window_size(t_game *game)
  * All thte images will be draw by xpm file to image.
  * @param game
  */
-static	void setup_imgs(t_game *game)
+static void	setup_imgs(t_game *game)
 {
 	// mlx_xpm_file_to_image Will read a image.
-	game->img_empty = mlx_xpm_file_to_image(game->mlx, EMPTY_XPM, 
-	&game->map_w, &game->map_h);
+	game->img_empty = mlx_xpm_file_to_image(game->mlx, EMPTY_XPM,
+			&game->map_w, &game->map_h);
 	game->img_wall = mlx_xpm_file_to_image(game->mlx, WALL_XPM,
-	 &game->map_w, &game->map_h);
-	game->img_collectible = mlx_xpm_file_to_image(game->mlx, COLLE_XPM, 
-	&game->map_w, &game->map_h);
+			&game->map_w, &game->map_h);
+	game->img_collectible = mlx_xpm_file_to_image(game->mlx, COLLE_XPM,
+			&game->map_w, &game->map_h);
 	game->img_player = mlx_xpm_file_to_image(game->mlx, P_XPM,
-	 &game->map_w, &game->map_h);
+			&game->map_w, &game->map_h);
 	game->img_exit = mlx_xpm_file_to_image(game->mlx, EXIT_XPM,
-	 &game->map_w, &game->map_h);
+			&game->map_w, &game->map_h);
 }
 
 void	load_game(t_game *game)
@@ -53,7 +53,7 @@ void	load_game(t_game *game)
 	game->mlx = mlx_init();
 	window_size(game);
 	game->win = mlx_new_window(game->mlx, game->map_w, game->map_h,
-	 "XX So_Long XX");
+			"So_Long");
 	// Initialize variables
 	game->moves = 0;
 	game->endgame = 0;

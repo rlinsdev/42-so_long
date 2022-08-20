@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/15 07:45:19 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 13:37:11 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:06:28 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,12 +70,11 @@ static int	valid_char_pec(t_game *game)
 }
 
 /**
- * @brief 
- * 
+ * @brief Responsable to validate all the char in map
  * @param map. Pointer to pointer. 2D Char array
  * @return int 
  */
-static	int valid_all_char(char **map)
+static int	valid_all_char(char **map)
 {
 	int	i;
 	int	j;
@@ -83,11 +82,11 @@ static	int valid_all_char(char **map)
 	i = 0;
 	while (map[i] != (void *)0) // comparison between pointer and zero
 	{
-		j = 0;		
+		j = 0;
 		while (map[i][j] != '\0') // comparison between pointer and integer
 		{
 			// The chars must be between this 5 types
-			if(map[i][j] != PLAYER_CONST &&
+			if (map[i][j] != PLAYER_CONST &&
 				map[i][j] != EXIT_CONST &&
 				map[i][j] != COLLEC_CONST &&
 				map[i][j] != BACK_G_CONST &&
@@ -108,8 +107,8 @@ static	int valid_all_char(char **map)
  */
 static	int valid_wall(char **map)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 	int	colum_size;
 
 	i = 0;
@@ -120,12 +119,11 @@ static	int valid_wall(char **map)
 	// Will validate the first and the last line
 	while (map[0][j] != '\0' && map[i - 1][j] != '\0')
 	{
-		if(map[0][j] != WALL_CONST || // First line in array
+		if (map[0][j] != WALL_CONST || // First line in array
 			map[i - 1][j] != WALL_CONST) // Last line in array
 			return (0);
 		j++;
 	}
-
 	// Will validate the firs and the last colum
 	i = 1;
 	colum_size = ft_strlen(map[i]);

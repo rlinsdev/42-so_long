@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:43:49 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:19:27 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,5 +163,23 @@ int	key_press(int keycode, t_game *game);
  * @param map 
  */
 void	free_map(char **map);
+
+/**
+ * @brief Responsable to update all the variables to make the 
+ * feeling of movement of the char. Will update and change the images
+ * calling the correct methods 
+ * @param game 
+ * @param key 
+ */
+void	press_key(t_game *game, char key);
+
+/**
+ * @brief Will Rollback the position player.
+ * How he is hit a invalid char (wall or exit) not allow, 
+ * comming back to original state 
+ * @param game Game object
+ * @param key Key pressed
+ */
+void person_rollback(t_game *game, char key);
 
 #endif

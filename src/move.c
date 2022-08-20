@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:43:22 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:20:36 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
  */
 static void	player_update_image(t_game *game, char key)
 {
-	if(key == A_KEY_CONST || key == D_KEY_CONST)
+	if (key == A_KEY_CONST || key == D_KEY_CONST)
 	{
 		// Destroing player img
 		mlx_destroy_image(game->mlx, game->img_player);
@@ -50,7 +50,7 @@ static void	update_x_axio(t_game *game, char key)
  * @param game 
  * @param key 
  */
-static	void update_y_axio(t_game *game, char key)
+static void	update_y_axio(t_game *game, char key)
 {
 	if (key == W_KEY_CONST)
 		game->map[game->y_player + 1][game->x_player] = BACK_G_CONST;
@@ -59,49 +59,22 @@ static	void update_y_axio(t_game *game, char key)
 }
 
 /**
- * @brief Will Rollback the position player.
- * How he is hit a invalid char (wall or exit) not allow, 
- * comming back to original state 
- * @param game Game object
- * @param key Key pressed
- */
-static void person_rollback(t_game *game, char key)
-{
-	if (key == W_KEY_CONST)
-		game->y_player += 1;
-	else if (key == A_KEY_CONST)
-		game->x_player += 1;
-	else if (key == D_KEY_CONST)
-		game->x_player -= 1;
-	else if (key == S_KEY_CONST)
-		game->y_player -= 1;
-}
-
-/**
  * @brief How the person will change, in this location
  * we must to 'reset' or 'put' the empty space back 
  * @param game Object game
  * @param key Key pressed
  */
-static void update_previous_char_to_empty(t_game *game, char key)
+static void	update_previous_char_to_empty(t_game *game, char key)
 {
-	if(key == W_KEY_CONST || key == S_KEY_CONST)
+	if (key == W_KEY_CONST || key == S_KEY_CONST)
 		update_y_axio(game, key);
 	else if (key == A_KEY_CONST || key == D_KEY_CONST)
 		update_x_axio(game, key);
 }
 
-/**
- * @brief Responsable to update all the variables to make the 
- * feeling of movement of the char. Will update and change the images
- * calling the correct methods 
- * @param game 
- * @param key 
- */
-static void	press_key(t_game *game, char key)
+void	press_key(t_game *game, char key)
 {
 	player_update_image(game, key);
-
 	// if no More Collectons, and is exit
 	if (game->map[game->y_player][game->x_player] == EXIT_CONST
 			&& game->n_collectible == 0)
@@ -127,32 +100,4 @@ static void	press_key(t_game *game, char key)
 		game->moves++;
 		map_draw_img(game);
 	}
-}
-
-void	press_a(t_game *game)
-{
-	// Update Person position
-	game->x_player -= 1;
-	press_key(game, A_KEY_CONST);
-}
-
-void	press_s(t_game *game)
-{
-	// Update Person position
-	game->y_player += 1;
-	press_key(game, S_KEY_CONST);
-}
-
-void	press_d(t_game *game)
-{
-	// Update Person position
-	game->x_player += 1;
-	press_key(game, D_KEY_CONST);
-}
-
-void	press_w(t_game *game)
-{
-	// Update Person position
-	game->y_player -= 1;
-	press_key(game, W_KEY_CONST);
 }

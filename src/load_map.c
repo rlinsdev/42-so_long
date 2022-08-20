@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:25:45 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/18 22:46:41 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 16:22:39 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	**load_map(char *path)
 {
 	int		fd;
-	char 	**map;
+	char	**map;
 	char	*accumulator;
 	char	*holder;
 	char	*line;
@@ -24,12 +24,11 @@ char	**load_map(char *path)
 	if (fd == -1)
 		return (NULL);
 	accumulator = ft_strdup(""); // TODO: Porque strdup?
-
-	while(1)
+	while (1)
 	{
 		line = get_next_line(fd);
 		if (!line)
-			break;
+			break ;
 		holder = accumulator;
 		accumulator = ft_strjoin(holder, line); // TODO: porque strjoin?
 		free(line);
@@ -38,5 +37,5 @@ char	**load_map(char *path)
 	map = ft_split(accumulator, '\n'); // Todo: porque dar split aqui?
 	free(accumulator);
 	close(fd);
-	return(map);
+	return (map);
 }

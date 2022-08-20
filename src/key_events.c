@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 08:06:03 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 13:38:10 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 15:27:34 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static	void handle_keys(int keycode, t_game *game)
 int	key_press(int keycode, t_game *game)
 {
 	// Exit game when esc
-	if (keycode == XK_Escape)
+	if (keycode == XK_Escape || keycode == XK_q)
 		exit_game(game);
 	else if (!game->endgame)
 	{
