@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/19 18:29:46 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 09:39:11 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 
 # include "../lib/minilibx-linux/mlx.h"
 # include "./libft.h"
-// # include <stdio.h>
 # include <fcntl.h> // To Open a file
-#include <X11/keysym.h> // TODO: Ver se isso é proibido
-#include <X11/X.h> // TODO: Ver se isso é proibido
+#include <X11/keysym.h> // Type key code pressed
+#include <X11/X.h> // Type event em mask that hooks call
 
 typedef struct s_game
 {
