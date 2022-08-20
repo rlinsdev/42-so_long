@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 16:19:27 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 17:17:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,8 +136,9 @@ void	load_game(t_game *game);
 int	valid_extension(char *path);
 
 /**
- * @brief Will handler the hooks - Mlx with windows actions
- * @param game obj game by ref
+ * @brief Hooks looks like a trigger.
+ * This method will handler the hooks in project.
+ * @param game 
  */
 void	hooks_handler(t_game *game);
 
