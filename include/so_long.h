@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 18:44:21 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:16:05 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:43:49 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,11 @@ typedef struct s_game
 }	t_game;
 
 # define IMG_PXL_SZ 32
+
+# define A_KEY_CONST	'a'
+# define S_KEY_CONST	's'
+# define D_KEY_CONST	'd'
+# define W_KEY_CONST	'w'
 
 # define WALL_CONST		'1'
 # define BACK_G_CONST 	'0'

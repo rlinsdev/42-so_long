@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/20 10:44:12 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/20 11:45:52 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ LIBS_PATH = ./lib/
 BINS_PATH = ./bin/
 
 # maps
-MAP = maps/map_6x34.ber
+MAP = maps/map_15x34.ber
 #MAP = maps/map_5x13.ber
 #MAP = maps/map_6x34.ber
 

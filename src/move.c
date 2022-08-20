@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 11:22:20 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/20 11:43:22 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@
  */
 static void	player_update_image(t_game *game, char key)
 {
-	if(key == 'a' || key == 'd')
+	if(key == A_KEY_CONST || key == D_KEY_CONST)
 	{
 		// Destroing player img
 		mlx_destroy_image(game->mlx, game->img_player);
 		// Restoring player image
-		if (key == 'd')
+		if (key == D_KEY_CONST)
 			game->img_player = mlx_xpm_file_to_image(game->mlx, P_XPM, &game->img_w, &game->img_h);
-		else if (key == 'a')
+		else if (key == A_KEY_CONST)
 			game->img_player = mlx_xpm_file_to_image(game->mlx, P_A_XPM, &game->img_w, &game->img_h);
 	}
 }
@@ -39,10 +39,10 @@ static void	player_update_image(t_game *game, char key)
  */
 static void	update_x_axio(t_game *game, char key)
 {
-	if (key == 'a')
-		game->map[game->y_player][game->x_player + 1] = '0';
+	if (key == A_KEY_CONST)
+		game->map[game->y_player][game->x_player + 1] = BACK_G_CONST;
 	else
-		game->map[game->y_player][game->x_player - 1] = '0';
+		game->map[game->y_player][game->x_player - 1] = BACK_G_CONST;
 }
 
 /**
@@ -52,10 +52,10 @@ static void	update_x_axio(t_game *game, char key)
  */
 static	void update_y_axio(t_game *game, char key)
 {
-	if (key == 'w')
-		game->map[game->y_player + 1][game->x_player] = '0';
-	else if (key == 's')
-		game->map[game->y_player - 1][game->x_player] = '0';
+	if (key == W_KEY_CONST)
+		game->map[game->y_player + 1][game->x_player] = BACK_G_CONST;
+	else if (key == S_KEY_CONST)
+		game->map[game->y_player - 1][game->x_player] = BACK_G_CONST;
 }
 
 /**
@@ -67,13 +67,13 @@ static	void update_y_axio(t_game *game, char key)
  */
 static void person_rollback(t_game *game, char key)
 {
-	if (key == 'w')
+	if (key == W_KEY_CONST)
 		game->y_player += 1;
-	else if (key == 'a')
+	else if (key == A_KEY_CONST)
 		game->x_player += 1;
-	else if (key == 'd')
+	else if (key == D_KEY_CONST)
 		game->x_player -= 1;
-	else if (key == 's')
+	else if (key == S_KEY_CONST)
 		game->y_player -= 1;
 }
 
@@ -85,9 +85,9 @@ static void person_rollback(t_game *game, char key)
  */
 static void update_previous_char_to_empty(t_game *game, char key)
 {
-	if(key == 'w' || key == 's')
+	if(key == W_KEY_CONST || key == S_KEY_CONST)
 		update_y_axio(game, key);
-	else if (key == 'a' || key == 'd')
+	else if (key == A_KEY_CONST || key == D_KEY_CONST)
 		update_x_axio(game, key);
 }
 
@@ -133,26 +133,26 @@ void	press_a(t_game *game)
 {
 	// Update Person position
 	game->x_player -= 1;
-	press_key(game, 'a');
+	press_key(game, A_KEY_CONST);
 }
 
 void	press_s(t_game *game)
 {
 	// Update Person position
 	game->y_player += 1;
-	press_key(game, 's');
+	press_key(game, S_KEY_CONST);
 }
 
 void	press_d(t_game *game)
 {
 	// Update Person position
 	game->x_player += 1;
-	press_key(game, 'd');
+	press_key(game, D_KEY_CONST);
 }
 
 void	press_w(t_game *game)
 {
 	// Update Person position
 	game->y_player -= 1;
-	press_key(game, 'w');
+	press_key(game, W_KEY_CONST);
 }
