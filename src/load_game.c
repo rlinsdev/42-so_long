@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 22:19:02 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 16:25:57 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/21 10:35:05 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ static void	window_size(t_game *game)
 
 /**
  * @brief Define the image for each object in game stucture.
- * All thte images will be draw by xpm file to image.
+ * All the images will be draw by xpm file to image.
  * @param game
  */
 static void	setup_imgs(t_game *game)

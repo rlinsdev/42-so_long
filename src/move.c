@@ -6,7 +6,7 @@
 /*   By: rlins <rlins@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/16 19:07:31 by rlins             #+#    #+#             */
-/*   Updated: 2022/08/20 16:20:36 by rlins            ###   ########.fr       */
+/*   Updated: 2022/08/21 10:50:49 by rlins            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void	press_key(t_game *game, char key)
 		person_rollback(game, key);
 	else
 	{
+		// Clear (in blak) the given window
 		mlx_clear_window(game->mlx, game->win);
 		// Decrement collectable, if this is the type
 		if (game->map[game->y_player][game->x_player] == COLLEC_CONST)
