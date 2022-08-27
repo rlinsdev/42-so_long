@@ -6,7 +6,7 @@
 #    By: rlins <rlins@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/07/28 19:15:33 by rlins             #+#    #+#              #
-#    Updated: 2022/08/20 16:11:19 by rlins            ###   ########.fr        #
+#    Updated: 2022/08/27 08:03:09 by rlins            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,11 @@ LIBS_PATH = ./lib/
 BINS_PATH = ./bin/
 
 # maps
+#MAP = maps/map_3x5.ber
+MAP = maps/map_5x13.ber
+#MAP = maps/map_6x34.ber
 #MAP = maps/map_15x34.ber
-#MAP = maps/map_3x13.ber
-#MAP = maps/map_5x13.ber
-MAP = maps/map_6x34.ber
+#MAP = maps/map_10x10.ber
 
 # Minilibx
 MINILIBX_PATH	=	./lib/minilibx-linux
