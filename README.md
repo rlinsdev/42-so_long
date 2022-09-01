@@ -3,7 +3,7 @@
 
 <p align="center"><a href="https://www.42sp.org.br/" target="_blank"><img src="https://img.shields.io/static/v1?label=&message=SP&color=000&style=for-the-badge&logo=42""></a></p>
 
-<p align="center"><img src="https://game.42sp.org.br/static/assets/achievements/so_longe.png"> </p>
+<p align="center"><img src="https://game.42sp.org.br/static/assets/achievements/so_longe.png" alt="So Long"> </p>
 
 
 # What is So_long?
